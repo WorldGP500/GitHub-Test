@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)file:///C:/Users/skpla/Downloads/completion_inspection_checklist_2.html -->
+<html lang="ja" style="--accent: #1a3a5c; --accent-light: #E8EEF5;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>電気設備工事 検査チェックリスト</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Arial',sans-serif;font-size:12px;color:#222;background:#f0f2f5;}
+.page{max-width:920px;margin:0 auto;padding:16px;}
+
+/* ===== モード切替バー ===== */
+.mode-bar{display:flex;gap:0;border-radius:8px;overflow:hidden;margin-bottom:12px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.mode-btn{flex:1;padding:13px 10px;font-size:13px;font-weight:700;border:none;cursor:pointer;transition:all .2s;letter-spacing:.03em;font-family:inherit;}
+.mode-btn.contractor{background:#FFF8E1;color:#7c4d00;}
+.mode-btn.contractor.active{background:linear-gradient(135deg,#E65100,#F57F17);color:#fff;}
+.mode-btn.supervisor{background:#E8EEF5;color:#1a3a5c;}
+.mode-btn.supervisor.active{background:linear-gradient(135deg,#1a3a5c,#2c6090);color:#fff;}
+.mode-label{display:block;font-size:10px;font-weight:400;margin-top:2px;opacity:.85;}
+
+/* ===== ヘッダー ===== */
+.doc-header{color:#fff;padding:14px 22px;border-radius:6px 6px 0 0;transition:background .3s;}
+.doc-header.contractor{background:linear-gradient(135deg,#E65100,#F57F17);}
+.doc-header.supervisor{background:linear-gradient(135deg,#1a3a5c,#2c6090);}
+.doc-header h1{font-size:15px;font-weight:700;}
+.doc-header .sub{font-size:11px;opacity:.85;margin-top:3px;}
+
+/* ===== メタ情報 ===== */
+.meta-box{background:#fff;border:1px solid #ccd4de;border-top:none;padding:12px 18px;margin-bottom:10px;}
+.meta-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.mf{display:flex;flex-direction:column;gap:3px;}
+.mf label{font-size:11px;color:#666;font-weight:500;}
+.mf input,.mf textarea{border:1px solid #ddd;border-radius:4px;padding:4px 8px;font-size:12px;font-family:inherit;background:#fafafa;}
+.mf input:focus,.mf textarea:focus{outline:none;background:#fff;}
+.mf input:focus{border-color:var(--accent);}
+.mf textarea{resize:vertical;min-height:32px;}
+
+/* ===== ノート ===== */
+.note-box{border-radius:4px;padding:7px 14px;margin-bottom:10px;font-size:11px;line-height:1.6;}
+.note-box.contractor{background:#FFF3E0;border:1px solid #FFB74D;color:#5f3000;}
+.note-box.supervisor{background:#fffde7;border:1px solid #f9a825;color:#5f4c00;}
+
+/* ===== 自動保存バー ===== */
+.autosave-bar{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #ddd;border-radius:6px;padding:7px 14px;margin-bottom:10px;font-size:11px;color:#555;}
+.autosave-dot{width:8px;height:8px;border-radius:50%;background:#ccc;flex-shrink:0;transition:background .3s;}
+.autosave-dot.saved{background:#2e7d32;}
+.autosave-dot.saving{background:#f59e0b;animation:pulse .6s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+.autosave-text{flex:1;}
+.autosave-actions{display:flex;gap:6px;}
+
+/* ===== ボタン ===== */
+.action-bar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px;}
+.btn{padding:6px 13px;font-size:12px;border-radius:4px;cursor:pointer;border:1px solid;font-family:inherit;white-space:nowrap;}
+.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+.btn-primary:hover{filter:brightness(.9);}
+.btn-outline{background:#fff;color:var(--accent);border-color:var(--accent);}
+.btn-outline:hover{background:var(--accent-light);}
+.btn-danger{background:#fff;color:#c62828;border-color:#c62828;}
+.btn-danger:hover{background:#fdecea;}
+.btn-success{background:#2e7d32;color:#fff;border-color:#2e7d32;}
+.btn-warn{background:#E65100;color:#fff;border-color:#E65100;}
+.btn-gray{background:#fff;color:#555;border-color:#aaa;}
+.file-input-wrap{position:relative;overflow:hidden;display:inline-block;}
+.file-input-wrap input[type=file]{position:absolute;left:0;top:0;opacity:0;width:100%;height:100%;cursor:pointer;}
+
+/* ===== データ連携バナー ===== */
+.handoff-banner{background:#E8F5E9;border:1px solid #A5D6A7;border-radius:6px;padding:10px 16px;margin-bottom:10px;display:none;}
+.handoff-banner.show{display:block;}
+.handoff-title{font-size:12px;font-weight:700;color:#2e7d32;margin-bottom:4px;}
+.handoff-info{font-size:11px;color:#1b5e20;line-height:1.6;}
+.handoff-info span{font-weight:600;}
+
+/* ===== 進捗 ===== */
+.progress-wrap{background:#fff;border:1px solid #ddd;border-radius:6px;padding:10px 16px;margin-bottom:10px;}
+.progress-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
+.progress-title{font-size:12px;font-weight:600;color:#333;}
+.progress-pct{font-size:20px;font-weight:700;color:var(--accent);}
+.prog-bg{height:8px;background:#e8e8e8;border-radius:4px;overflow:hidden;}
+.prog-fill{height:100%;border-radius:4px;transition:width .3s;}
+.prog-sub{display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:#888;}
+.chips{display:flex;gap:7px;margin-top:6px;flex-wrap:wrap;}
+.chip{font-size:11px;padding:2px 10px;border-radius:10px;}
+.chip-ok{background:#e8f5e9;color:#2e7d32;}
+.chip-ng-s{background:#ffebee;color:#c62828;}
+.chip-ng-c{background:#FFF3E0;color:#E65100;}
+.chip-pend{background:#e3f2fd;color:#1565c0;}
+.chip-na{background:#f3e5f5;color:#7b1fa2;}
+
+/* ===== カテゴリブロック ===== */
+.cat-block{background:#fff;border:1px solid #ddd;border-radius:6px;margin-bottom:8px;overflow:hidden;}
+.cat-header{display:flex;justify-content:space-between;align-items:center;padding:8px 14px;cursor:pointer;background:#f4f6f9;border-bottom:1px solid #e0e0e0;user-select:none;}
+.cat-header:hover{background:#eaeff5;}
+.cat-title{font-size:13px;font-weight:700;color:#1a3a5c;display:flex;align-items:center;gap:8px;}
+.cat-right{display:flex;align-items:center;gap:8px;}
+.cat-badge{font-size:11px;padding:2px 10px;border-radius:10px;background:#e8eef5;color:#1a3a5c;font-weight:500;}
+.cat-badge.all-ok{background:#e8f5e9;color:#2e7d32;}
+.cat-badge.has-ng{background:#ffebee;color:#c62828;}
+.cat-badge.has-ng-c{background:#FFF3E0;color:#E65100;}
+.chevron{font-size:10px;color:#999;transition:transform .2s;}
+.chevron.open{transform:rotate(180deg);}
+
+/* ===== テーブル ===== */
+.tbl-head{display:grid;gap:0;padding:5px 10px;background:#34495e;font-size:10px;font-weight:600;color:#fff;letter-spacing:.04em;}
+.tbl-head span{padding:0 4px;}
+/* 通常列（6列） */
+.cols-normal{grid-template-columns:50px 98px 44px 84px 1fr 175px;}
+/* 引継ぎ列（施工業者チェック付き 7列） */
+.cols-handoff{grid-template-columns:50px 98px 44px 74px 74px 1fr 160px;}
+.item-row{display:grid;gap:0;border-bottom:1px solid #f0f0f0;align-items:stretch;min-height:36px;}
+.item-row:hover{background:#f8faff;}
+.item-row.ok-row{background:#f6fbf6;}
+.item-row.ng-row-s{background:#fff5f5;}
+.item-row.ng-row-c{background:#FFF8F0;}
+.item-row.na-row{background:#fdf8ff;}
+.item-row.msr-row{background:#fffde7;}
+.cell{padding:5px 6px;display:flex;align-items:center;border-right:1px solid #f0f0f0;font-size:11px;}
+.cell:last-child{border-right:none;}
+.c-no{justify-content:center;color:#888;font-size:10px;}
+.c-cat{color:#444;font-size:10px;line-height:1.4;}
+.c-applicable{justify-content:center;}
+.c-applicable input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:var(--accent);}
+.c-status select,.c-ref{width:100%;font-size:11px;padding:2px 3px;border:1px solid #ccc;border-radius:3px;font-family:inherit;}
+.c-ref-val{font-size:10px;color:#555;line-height:1.4;padding:2px 4px;}
+.ref-ok{color:#2e7d32;font-weight:600;}
+.ref-ng{color:#E65100;font-weight:600;}
+.c-text{flex-direction:column;align-items:flex-start;}
+.item-text{font-size:11px;color:#333;line-height:1.5;}
+.item-text.ok{color:#aaa;}
+.item-text.ng{color:#c62828;font-weight:500;}
+.item-text.ng-c{color:#E65100;font-weight:500;}
+.item-sub{font-size:10px;color:#aaa;margin-top:2px;}
+.c-memo textarea{width:100%;font-size:10px;border:1px solid #e0e0e0;border-radius:3px;padding:3px 4px;resize:vertical;min-height:30px;font-family:inherit;background:#fafafa;}
+.c-memo textarea:focus{border-color:var(--accent);background:#fff;outline:none;}
+.c-memo textarea.has-memo{border-color:#E65100;background:#fff8f5;}
+
+/* ===== 指摘まとめモーダル ===== */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:flex-start;justify-content:center;overflow-y:auto;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#fff;border-radius:8px;width:100%;max-width:880px;margin:auto;}
+.modal-header{color:#fff;padding:12px 20px;border-radius:8px 8px 0 0;display:flex;justify-content:space-between;align-items:center;position:relative;}
+.modal-header.supervisor{background:#c62828;}
+.modal-header.contractor{background:#E65100;}
+.modal-header h2{font-size:14px;font-weight:700;}
+.modal-close{background:none;border:none;color:#fff;font-size:20px;cursor:pointer;line-height:1;}
+.modal-meta{padding:10px 18px;background:#fff5f5;border-bottom:1px solid #fecdd3;font-size:11px;color:#555;}
+.modal-meta .mrow{display:flex;gap:20px;flex-wrap:wrap;}
+.modal-meta .mi{display:flex;gap:5px;}
+.modal-meta .ml{font-weight:600;color:#888;}
+.modal-body{padding:14px 18px;}
+.modal-actions{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap;}
+.ng-count-bar{border-radius:4px;padding:7px 14px;margin-bottom:12px;font-size:12px;font-weight:500;}
+.ng-count-bar.supervisor{background:#ffebee;border:1px solid #fca5a5;color:#c62828;}
+.ng-count-bar.contractor{background:#FFF3E0;border:1px solid #FFB74D;color:#E65100;}
+.ng-table{width:100%;border-collapse:collapse;font-size:11px;}
+.ng-table th{background:#34495e;color:#fff;padding:6px 10px;text-align:left;font-size:10px;font-weight:600;letter-spacing:.04em;}
+.ng-table td{padding:6px 10px;border-bottom:1px solid #f0f0f0;vertical-align:top;line-height:1.5;}
+.ng-table tr:nth-child(even) td{background:#fff9f5;}
+.td-no{width:44px;text-align:center;color:#888;font-size:10px;}
+.td-cat{width:88px;color:#555;}
+.td-status{width:72px;text-align:center;}
+.td-memo{color:#c62828;}
+.td-remedy input{width:100%;border:1px solid #ddd;border-radius:3px;padding:3px 5px;font-size:10px;font-family:inherit;}
+.status-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500;}
+.s-ng-s{background:#ffebee;color:#c62828;}
+.s-ng-c{background:#FFF3E0;color:#E65100;}
+.s-ok{background:#e8f5e9;color:#2e7d32;}
+.empty-msg{text-align:center;padding:36px;color:#aaa;font-size:13px;}
+.modal-footer{padding:12px 18px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;}
+.modal-note{font-size:10px;color:#aaa;}
+
+/* ===== 印刷 ===== */
+@media print{
+  body{background:#fff;}
+  .page{padding:0;max-width:100%;}
+  .mode-bar,.action-bar,.autosave-bar,.btn,.modal-overlay,.handoff-banner{display:none!important;}
+  .cat-body{display:block!important;}
+  .c-memo textarea{border:none;background:transparent;min-height:16px;}
+  .doc-header{border-radius:0;}
+  @page{margin:10mm;size:A4 portrait;}
+  .cat-block{break-inside:avoid;}
+  .item-row{min-height:26px;}
+  .cols-normal{grid-template-columns:40px 80px 36px 70px 1fr 140px;}
+  .cols-handoff{grid-template-columns:40px 80px 36px 64px 64px 1fr 130px;}
+  body.print-ng-mode .page{display:none!important;}
+  body.print-ng-mode .modal-overlay{display:block!important;position:static!important;background:none!important;padding:0!important;}
+  body.print-ng-mode .modal-box{border-radius:0!important;max-width:100%!important;}
+  body.print-ng-mode .modal-actions,.modal-close,.modal-footer{display:none!important;}
+  body.print-ng-mode .td-remedy input{border:none;background:transparent;}
+}
+.footer{font-size:10px;color:#bbb;text-align:center;margin-top:12px;padding-bottom:16px;}
+
+/* ===== ダークモード ===== */
+body.dark{color:#dde1e7;background:#161b27;}
+body.dark .meta-box{background:#1e2740;border-color:#2e3b55;}
+body.dark .mf label{color:#8da0c0;}
+body.dark .mf input,body.dark .mf textarea{background:#14213d;border-color:#2e3b55;color:#dde1e7;}
+body.dark .mf input::placeholder,body.dark .mf textarea::placeholder{color:#4a6080;}
+body.dark .cat-block{background:#1e2740;border-color:#2e3b55;}
+body.dark .cat-header{background:#182036;border-color:#2e3b55;}
+body.dark .cat-header:hover{background:#1f2d4a;}
+body.dark .cat-title{color:#8db8d8;}
+body.dark .tbl-head{background:#0d1526;}
+body.dark .item-row{border-color:#2a3650;}
+body.dark .item-row:hover{background:#1a2540;}
+body.dark .item-row.ok-row{background:#0d2018;}
+body.dark .item-row.ng-row-s{background:#2a0d0d;}
+body.dark .item-row.ng-row-c{background:#2a1a0d;}
+body.dark .item-row.na-row{background:#1a0d2a;}
+body.dark .item-row.msr-row{background:#1a1a0a;}
+body.dark .cell{border-color:#2a3650;}
+body.dark .item-text{color:#c8d4e8;}
+body.dark .c-no{color:#5a7090;}
+body.dark .c-cat{color:#7090a0;}
+body.dark .item-sub{color:#5a7090;}
+body.dark .c-status select{background:#14213d;border-color:#2e3b55;color:#dde1e7;}
+body.dark .c-ref-val{color:#8da0c0;}
+body.dark .c-memo textarea{background:#14213d;border-color:#2a3650;color:#c8d4e8;}
+body.dark .c-memo textarea:focus{background:#1a2a4a;}
+body.dark .c-memo textarea.has-memo{border-color:#E65100;background:#1a140d;}
+body.dark .progress-wrap{background:#1e2740;border-color:#2e3b55;}
+body.dark .progress-title{color:#8da0c0;}
+body.dark .prog-bg{background:#0d1526;}
+body.dark .prog-sub{color:#5a7090;}
+body.dark .autosave-bar{background:#1e2740;border-color:#2e3b55;color:#8da0c0;}
+body.dark .btn-gray{background:#1e2740;color:#8da0c0;border-color:#2e3b55;}
+body.dark .btn-outline{background:#1e2740;}
+body.dark .btn-outline:hover{background:#2a3655;}
+body.dark .btn-danger{background:#1e2740;}
+body.dark .note-box.supervisor{background:#191700;border-color:#3a3200;color:#c8b860;}
+body.dark .note-box.contractor{background:#1a1000;border-color:#3a2000;color:#c8a060;}
+body.dark .handoff-banner{background:#0d2018;border-color:#1a4030;}
+body.dark .handoff-title{color:#4caf80;}
+body.dark .handoff-info{color:#3a9060;}
+body.dark .modal-box{background:#1e2740;}
+body.dark .modal-meta{background:#150d0d;border-color:#3a1010;}
+body.dark .modal-meta .ml{color:#6a8090;}
+body.dark .modal-meta .mi{color:#a0b8d0;}
+body.dark .ng-count-bar.supervisor{background:#2a0d0d;border-color:#5a2020;color:#f08080;}
+body.dark .ng-count-bar.contractor{background:#2a1a0d;border-color:#5a3a20;color:#f0a060;}
+body.dark .ng-table th{background:#0d1526;}
+body.dark .ng-table td{border-color:#2a3650;color:#c8d4e8;}
+body.dark .ng-table tr:nth-child(even) td{background:#161f35;}
+body.dark .td-cat{color:#8da0c0;}
+body.dark .td-remedy input{background:#14213d;border-color:#2e3b55;color:#dde1e7;}
+body.dark .modal-footer{border-color:#2a3650;background:#1a2030;}
+body.dark .modal-note{color:#5a7090;}
+body.dark .footer{color:#2a3a50;}
+body.dark .mode-btn.contractor{background:#241a08;color:#c8903a;}
+body.dark .mode-btn.supervisor{background:#0e1626;color:#6a90b8;}
+
+/* ===== 捺印欄（印刷時のみ表示） ===== */
+.stamp-wrap{display:none;}
+@media print{
+  .stamp-wrap{display:flex;justify-content:flex-end;gap:12px;margin-bottom:8px;}
+  .stamp-cell{display:flex;flex-direction:column;align-items:center;gap:3px;}
+  .stamp-label{font-size:9px;color:#555;}
+  .stamp-box{width:58px;height:58px;border:1px solid #888;border-radius:3px;}
+}
+
+/* ===== 別紙（指摘事項まとめ）印刷スタイル ===== */
+@media print{
+  body.print-ng-mode .ng-sheet-wrap{
+    border:3px double #1a3a5c;
+    padding:6px;
+    margin:0;
+    border-radius:0;
+  }
+  body.print-ng-mode .modal-header{
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  body.print-ng-mode .ng-sheet-stamp{
+    display:flex!important;
+  }
+  .ng-sheet-stamp{display:none;}
+}
+
+/* ===== 修正1: 印刷時の文字色を黒に強制 ===== */
+@media print{
+  .item-text, .item-sub, .c-no, .c-cat, .c-ref-val,
+  .mf label, .mf input, .mf textarea,
+  .cat-title, .cat-badge, .progress-title, .prog-sub,
+  .tbl-head span, .modal-meta, .modal-meta .ml, .modal-meta .mi,
+  .ng-table td, .ng-table th, .ng-count-bar,
+  .td-cat, .td-no, .td-memo, .td-status, .status-badge,
+  .td-remedy input, .td-remedy,
+  .footer, .modal-note {
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .item-text.ng, .item-text.ng-c { color: #000 !important; font-weight: 600; }
+  .td-memo { color: #000 !important; font-weight: 500; }
+  .status-badge.s-ng-s, .status-badge.s-ng-c { color: #000 !important; background: #eee !important; border: 1px solid #999 !important; }
+  .status-badge.s-ok { color: #000 !important; background: #f0f0f0 !important; border: 1px solid #aaa !important; }
+  .ref-ok, .ref-ng { color: #000 !important; }
+  /* 修正5: 印刷時 チェック列を1行に（折り返し禁止） */
+  .td-status, .status-badge { white-space: nowrap !important; }
+}
+
+/* ===== 修正2: 「手直し」選択時のプルダウンと文字の重なり解消 ===== */
+.c-status select {
+  font-size: 10px !important;
+  padding: 2px 16px 2px 3px !important;
+  text-overflow: ellipsis;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  background-size: 8px 5px;
+}
+
+/* ===== 修正6: 監理確認 印鑑欄（ng-table 左端） ===== */
+.td-kanri { width: 44px; text-align: center; vertical-align: middle; }
+.stamp-ng-cell {
+  width: 36px; height: 36px;
+  border: 1px solid #bbb;
+  border-radius: 2px;
+  margin: 0 auto;
+  display: block;
+}
+@media print {
+  .td-kanri { width: 44px; }
+  .stamp-ng-cell { border-color: #555; }
+}
+
+/* ===== 追加修正 ===== */
+@media print{
+  /* 修正1: チェック列を広げ、selectを全表示 */
+  .cols-normal{grid-template-columns:40px 78px 34px 96px 1fr 126px !important;}
+  .cols-handoff{grid-template-columns:40px 78px 34px 68px 68px 1fr 110px !important;}
+  .c-status select{
+    -webkit-appearance:none !important;
+    appearance:none !important;
+    background:transparent !important;
+    background-image:none !important;
+    border:none !important;
+    padding:0 !important;
+    font-size:10px !important;
+    width:100% !important;
+    overflow:visible !important;
+    white-space:nowrap !important;
+  }
+  /* 修正2: チェックリストヘッダーの文字色を黒 */
+  .mf label{color:#000 !important;}
+  .mf input,.mf textarea{color:#000 !important;background:transparent !important;border-color:#aaa !important;}
+  .meta-box{color:#000 !important;}
+  .progress-title,.prog-sub{color:#000 !important;}
+  /* 修正3: 指摘印刷ヘッダーの文字色を黒 */
+  .modal-meta{color:#000 !important;background:#f0f4f8 !important;}
+  .modal-meta .ml{color:#000 !important;font-weight:700;}
+  .modal-meta .mi{color:#000 !important;}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- モード切替 -->
+<div class="mode-bar">
+  <button class="mode-btn contractor" id="mode-btn-c" onclick="setMode(&#39;contractor&#39;)">
+    🏢 施工業者 社内検査モード
+    <span class="mode-label">自主チェック → 監理者へデータ送付</span>
+  </button>
+  <button class="mode-btn supervisor active" id="mode-btn-s" onclick="setMode(&#39;supervisor&#39;)">
+    🔍 監理事務所 検査モード
+    <span class="mode-label">施工業者データ読込 → 監理検査実施</span>
+  </button>
+</div>
+
+<!-- ヘッダー -->
+<div class="doc-header supervisor" id="doc-header">
+  <h1 id="header-title">🔍 電気設備工事 監理事務所検査チェックリスト</h1>
+  <div class="sub" id="header-sub">施工品質・法令適合・動作確認の総合検査用</div>
+</div>
+
+<!-- メタ情報 -->
+<div class="meta-box">
+  <div class="meta-grid">
+    <div class="mf"><label>工事件名</label><input type="text" id="m-proj" placeholder="〇〇設備工事" oninput="autoSave()"></div>
+    <div class="mf"><label>工事業者名</label><input type="text" id="m-contractor" placeholder="〇〇電気工事株式会社" oninput="autoSave()"></div>
+    <div class="mf"><label>現場代理人</label><input type="text" id="m-agent" placeholder="氏名" oninput="autoSave()"></div>
+  </div>
+  <div class="meta-grid" style="margin-top:8px;">
+    <div class="mf"><label>工事場所</label><input type="text" id="m-location" placeholder="〇〇市〇〇町〇〇番地" oninput="autoSave()"></div>
+    <div class="mf"><label id="inspector-label">監理者（検査者）</label><input type="text" id="m-inspector" placeholder="氏名" oninput="autoSave()"></div>
+    <div class="mf"><label id="date-label">検査日</label><input type="date" id="m-date" oninput="autoSave()"></div>
+  </div>
+  <div class="meta-grid" style="margin-top:8px;">
+    <div class="mf" style="grid-column:span 2;"><label>工事概要</label><textarea id="m-summary" placeholder="例：RC造5階建て、受電6.6kV、変圧器500kVA 等" oninput="autoSave()"></textarea></div>
+    <div class="mf"><label>特記事項</label><textarea id="m-notes" placeholder="" oninput="autoSave()"></textarea></div>
+  </div>
+</div>
+
+<!-- 自動保存バー -->
+<div class="autosave-bar">
+  <div class="autosave-dot saved" id="autosave-dot"></div>
+  <span class="autosave-text" id="autosave-text">自動保存データを復元しました (2026/5/22 10:09:52)</span>
+  <div class="autosave-actions">
+    <button class="btn btn-gray" onclick="clearAutoSave()" style="font-size:11px;padding:4px 10px;">🗑 保存データを消去</button>
+  </div>
+</div>
+
+<!-- 施工業者データ読込バナー -->
+<div class="handoff-banner" id="handoff-banner">
+  <div class="handoff-title">📥 施工業者の社内検査データを読み込みました</div>
+  <div class="handoff-info" id="handoff-info"></div>
+</div>
+
+<!-- アクションバー -->
+<div class="action-bar">
+  <button class="btn btn-primary" onclick="printMain()">🖨 チェックリスト印刷</button>
+  <button class="btn btn-warn" id="ng-modal-btn" onclick="openNgModal()">📋 指摘事項まとめ</button>
+  <button class="btn btn-success" onclick="saveToFile()">💾 データを保存（JSON）</button>
+  <div class="file-input-wrap">
+    <button class="btn btn-outline" id="load-btn-label">📂 データを読み込む（JSON）</button>
+    <input type="file" accept=".json" onchange="loadFromFile(event)">
+  </div>
+  <button class="btn btn-outline" onclick="expandAll()">▼ 展開</button>
+  <button class="btn btn-outline" onclick="collapseAll()">▲ 折りたたむ</button>
+  <button class="btn btn-gray" onclick="exportCSV()">📥 CSV</button>
+  <button class="btn btn-gray" id="dark-btn" onclick="toggleDark()" title="ダークモード切替">🌙 ダーク</button>
+  <button class="btn btn-danger" onclick="resetAll()">↺ リセット</button>
+</div>
+
+
+<!-- 捺印欄（印刷時のみ表示） -->
+<div class="stamp-wrap">
+  <div class="stamp-cell"><div class="stamp-label">監理者印</div><div class="stamp-box"></div></div>
+</div>
+
+<!-- ノート -->
+<div class="note-box supervisor" id="note-box">※ 「該当」にチェックを入れ、チェック欄で「○ 良」または「× 手直し」を選択してください。指摘内容欄の記入は指摘事項まとめに自動集計されます。📐は測定値記録が必要な項目です。</div>
+
+<!-- 進捗 -->
+<div class="progress-wrap">
+  <div class="progress-top">
+    <span class="progress-title" id="prog-title">検査進捗（該当項目のみ）</span>
+    <span class="progress-pct" id="pct-text">0%</span>
+  </div>
+  <div class="prog-bg"><div class="prog-fill" id="prog-fill" style="width:0%;background:#2e7d32;"></div></div>
+  <div class="prog-sub"><span id="prog-label">0 / 0 項目確認済</span><span id="ng-label">手直し：0件</span></div>
+  <div class="chips" id="chips"><span class="chip chip-ok">○ 良：0</span><span class="chip chip-ng-s">× 手直し：0</span><span class="chip chip-pend">未確認：0</span><span class="chip chip-na">N/A：0</span></div>
+</div>
+
+<div id="root"><div class="cat-block"><div class="cat-header" onclick="toggleCat(0)"><span class="cat-title">🏗 共通事項・施工全般</span><span class="cat-right"><span class="cat-badge" id="badge-0">0 / 0</span><span class="chevron open" id="chev-0">▼</span></span></div><div id="body-0"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-0-0" class="item-row cols-normal"><div class="cell c-no">1-1</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,0,this.checked)"></div><div class="cell c-status"><select id="st-0-0" disabled="" onchange="changeStatus(0,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-0">設計図書（設計図・仕様書・承認図）と施工内容が一致している</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-0-0" class="" placeholder="内容を記入..." oninput="changeMemo(0,0,this.value)"></textarea></div></div><div id="row-0-1" class="item-row cols-normal"><div class="cell c-no">1-2</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,1,this.checked)"></div><div class="cell c-status"><select id="st-0-1" disabled="" onchange="changeStatus(0,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-1">設計変更が生じた場合、変更指示書が発行され記録されている</span><span class="item-sub"> 確認方法：書類確認</span></div><div class="cell c-memo"><textarea id="memo-0-1" class="" placeholder="内容を記入..." oninput="changeMemo(0,1,this.value)"></textarea></div></div><div id="row-0-2" class="item-row cols-normal"><div class="cell c-no">1-3</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,2,this.checked)"></div><div class="cell c-status"><select id="st-0-2" disabled="" onchange="changeStatus(0,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-2">使用材料が設計図書指定の品番・規格品であることを確認</span><span class="item-sub"> 確認方法：納品書・ラベル確認</span></div><div class="cell c-memo"><textarea id="memo-0-2" class="" placeholder="内容を記入..." oninput="changeMemo(0,2,this.value)"></textarea></div></div><div id="row-0-3" class="item-row cols-normal"><div class="cell c-no">1-4</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,3,this.checked)"></div><div class="cell c-status"><select id="st-0-3" disabled="" onchange="changeStatus(0,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-3">JIS・JEC・JEM等の規格品であることを確認</span><span class="item-sub"> 確認方法：刻印・ラベル確認</span></div><div class="cell c-memo"><textarea id="memo-0-3" class="" placeholder="内容を記入..." oninput="changeMemo(0,3,this.value)"></textarea></div></div><div id="row-0-4" class="item-row cols-normal"><div class="cell c-no">1-5</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,4,this.checked)"></div><div class="cell c-status"><select id="st-0-4" disabled="" onchange="changeStatus(0,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-4">工事写真が各工程で適切に撮影・整理されている</span><span class="item-sub"> 確認方法：写真帳確認</span></div><div class="cell c-memo"><textarea id="memo-0-4" class="" placeholder="内容を記入..." oninput="changeMemo(0,4,this.value)"></textarea></div></div><div id="row-0-5" class="item-row cols-normal"><div class="cell c-no">1-6</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,5,this.checked)"></div><div class="cell c-status"><select id="st-0-5" disabled="" onchange="changeStatus(0,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-5">施工記録・試験成績書が揃っている</span><span class="item-sub"> 確認方法：書類確認</span></div><div class="cell c-memo"><textarea id="memo-0-5" class="" placeholder="内容を記入..." oninput="changeMemo(0,5,this.value)"></textarea></div></div><div id="row-0-6" class="item-row cols-normal"><div class="cell c-no">1-7</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,6,this.checked)"></div><div class="cell c-status"><select id="st-0-6" disabled="" onchange="changeStatus(0,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-6">既存設備への影響（停電・干渉等）が適切に処理されている</span><span class="item-sub"> 確認方法：目視・書類</span></div><div class="cell c-memo"><textarea id="memo-0-6" class="" placeholder="内容を記入..." oninput="changeMemo(0,6,this.value)"></textarea></div></div><div id="row-0-7" class="item-row cols-normal"><div class="cell c-no">1-8</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,7,this.checked)"></div><div class="cell c-status"><select id="st-0-7" disabled="" onchange="changeStatus(0,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-7">養生・清掃が完了し、工事に伴う汚損・損傷がない</span><span class="item-sub"> 確認方法：目視全般</span></div><div class="cell c-memo"><textarea id="memo-0-7" class="" placeholder="内容を記入..." oninput="changeMemo(0,7,this.value)"></textarea></div></div><div id="row-0-8" class="item-row cols-normal"><div class="cell c-no">1-9</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,8,this.checked)"></div><div class="cell c-status"><select id="st-0-8" disabled="" onchange="changeStatus(0,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-8">廃材・端材が適切に処分されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-0-8" class="" placeholder="内容を記入..." oninput="changeMemo(0,8,this.value)"></textarea></div></div><div id="row-0-9" class="item-row cols-normal"><div class="cell c-no">1-10</div><div class="cell c-cat">施工全般</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(0,9,this.checked)"></div><div class="cell c-status"><select id="st-0-9" disabled="" onchange="changeStatus(0,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-0-9">施工業者の資格（電気工事士・施工管理技士等）が適切か</span><span class="item-sub"> 確認方法：資格証確認</span></div><div class="cell c-memo"><textarea id="memo-0-9" class="" placeholder="内容を記入..." oninput="changeMemo(0,9,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(1)"><span class="cat-title">📦 配管工事</span><span class="cat-right"><span class="cat-badge" id="badge-1">0 / 0</span><span class="chevron open" id="chev-1">▼</span></span></div><div id="body-1"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-1-0" class="item-row cols-normal"><div class="cell c-no">2-1</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,0,this.checked)"></div><div class="cell c-status"><select id="st-1-0" disabled="" onchange="changeStatus(1,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-0">電線管の種別・サイズが設計図と一致している（E管・G管・PF管等）</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-1-0" class="" placeholder="内容を記入..." oninput="changeMemo(1,0,this.value)"></textarea></div></div><div id="row-1-1" class="item-row cols-normal"><div class="cell c-no">2-2</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,1,this.checked)"></div><div class="cell c-status"><select id="st-1-1" disabled="" onchange="changeStatus(1,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-1">配管ルートが設計図と一致し、他設備との干渉がない</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-1-1" class="" placeholder="内容を記入..." oninput="changeMemo(1,1,this.value)"></textarea></div></div><div id="row-1-2" class="item-row cols-normal"><div class="cell c-no">2-3</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,2,this.checked)"></div><div class="cell c-status"><select id="st-1-2" disabled="" onchange="changeStatus(1,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-2">露出配管の固定ピッチが適切である（直線部1.5m以下等）</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-1-2" class="" placeholder="内容を記入..." oninput="changeMemo(1,2,this.value)"></textarea></div></div><div id="row-1-3" class="item-row cols-normal"><div class="cell c-no">2-4</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,3,this.checked)"></div><div class="cell c-status"><select id="st-1-3" disabled="" onchange="changeStatus(1,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-3">曲げ半径が電線管の所定値以上で、折れ・変形がない</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-1-3" class="" placeholder="内容を記入..." oninput="changeMemo(1,3,this.value)"></textarea></div></div><div id="row-1-4" class="item-row cols-normal"><div class="cell c-no">2-5</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,4,this.checked)"></div><div class="cell c-status"><select id="st-1-4" disabled="" onchange="changeStatus(1,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-4">ボックス・プルボックスのサイズ・位置が適切</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-1-4" class="" placeholder="内容を記入..." oninput="changeMemo(1,4,this.value)"></textarea></div></div><div id="row-1-5" class="item-row cols-normal"><div class="cell c-no">2-6</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,5,this.checked)"></div><div class="cell c-status"><select id="st-1-5" disabled="" onchange="changeStatus(1,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-5">ボックスの取付強度が十分で、壁面・天井面との隙間がない</span><span class="item-sub"> 確認方法：目視・手動確認</span></div><div class="cell c-memo"><textarea id="memo-1-5" class="" placeholder="内容を記入..." oninput="changeMemo(1,5,this.value)"></textarea></div></div><div id="row-1-6" class="item-row cols-normal"><div class="cell c-no">2-7</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,6,this.checked)"></div><div class="cell c-status"><select id="st-1-6" disabled="" onchange="changeStatus(1,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-6">管端処理（ブッシング・エンドキャップ等）が施されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-1-6" class="" placeholder="内容を記入..." oninput="changeMemo(1,6,this.value)"></textarea></div></div><div id="row-1-7" class="item-row cols-normal"><div class="cell c-no">2-8</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,7,this.checked)"></div><div class="cell c-status"><select id="st-1-7" disabled="" onchange="changeStatus(1,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-7">可とう管（フレキ）の使用箇所・長さが適切（原則0.8m以下）</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-1-7" class="" placeholder="内容を記入..." oninput="changeMemo(1,7,this.value)"></textarea></div></div><div id="row-1-8" class="item-row cols-normal"><div class="cell c-no">2-9</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,8,this.checked)"></div><div class="cell c-status"><select id="st-1-8" disabled="" onchange="changeStatus(1,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-8">防火区画貫通部の処理（耐火充填材等）が適切に施されている</span><span class="item-sub"> 確認方法：目視・書類確認</span></div><div class="cell c-memo"><textarea id="memo-1-8" class="" placeholder="内容を記入..." oninput="changeMemo(1,8,this.value)"></textarea></div></div><div id="row-1-9" class="item-row cols-normal"><div class="cell c-no">2-10</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,9,this.checked)"></div><div class="cell c-status"><select id="st-1-9" disabled="" onchange="changeStatus(1,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-9">屋外・湿潤箇所の配管は防水型で管口処理が施されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-1-9" class="" placeholder="内容を記入..." oninput="changeMemo(1,9,this.value)"></textarea></div></div><div id="row-1-10" class="item-row cols-normal"><div class="cell c-no">2-11</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,10,this.checked)"></div><div class="cell c-status"><select id="st-1-10" disabled="" onchange="changeStatus(1,10,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-10">地中埋設管の埋設深さが基準以上（60cm以上等）</span><span class="item-sub"> 確認方法：施工記録・実測</span></div><div class="cell c-memo"><textarea id="memo-1-10" class="" placeholder="内容を記入..." oninput="changeMemo(1,10,this.value)"></textarea></div></div><div id="row-1-11" class="item-row cols-normal"><div class="cell c-no">2-12</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,11,this.checked)"></div><div class="cell c-status"><select id="st-1-11" disabled="" onchange="changeStatus(1,11,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-11">支持金物の腐食防止処理（ドブ漬け・塗装等）が施されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-1-11" class="" placeholder="内容を記入..." oninput="changeMemo(1,11,this.value)"></textarea></div></div><div id="row-1-12" class="item-row cols-normal"><div class="cell c-no">2-13</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,12,this.checked)"></div><div class="cell c-status"><select id="st-1-12" disabled="" onchange="changeStatus(1,12,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-12">スラブ・壁内隠蔽配管に亀裂・変形がない</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-1-12" class="" placeholder="内容を記入..." oninput="changeMemo(1,12,this.value)"></textarea></div></div><div id="row-1-13" class="item-row cols-normal"><div class="cell c-no">2-14</div><div class="cell c-cat">配管工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(1,13,this.checked)"></div><div class="cell c-status"><select id="st-1-13" disabled="" onchange="changeStatus(1,13,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-1-13">プルボックス内の整線・余長が適切</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-1-13" class="" placeholder="内容を記入..." oninput="changeMemo(1,13,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(2)"><span class="cat-title">🔗 配線工事</span><span class="cat-right"><span class="cat-badge" id="badge-2">0 / 0</span><span class="chevron open" id="chev-2">▼</span></span></div><div id="body-2"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-2-0" class="item-row cols-normal"><div class="cell c-no">3-1</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,0,this.checked)"></div><div class="cell c-status"><select id="st-2-0" disabled="" onchange="changeStatus(2,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-0">使用電線の種別・サイズが設計図と一致している（CV・IV・VVF等）</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-2-0" class="" placeholder="内容を記入..." oninput="changeMemo(2,0,this.value)"></textarea></div></div><div id="row-2-1" class="item-row cols-normal"><div class="cell c-no">3-2</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,1,this.checked)"></div><div class="cell c-status"><select id="st-2-1" disabled="" onchange="changeStatus(2,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-1">電線の色別が統一されている（L1:黒/茶 L2:赤 N:白/青 E:緑）</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-1" class="" placeholder="内容を記入..." oninput="changeMemo(2,1,this.value)"></textarea></div></div><div id="row-2-2" class="item-row cols-normal"><div class="cell c-no">3-3</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,2,this.checked)"></div><div class="cell c-status"><select id="st-2-2" disabled="" onchange="changeStatus(2,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-2">電線の接続はリングスリーブ・差込形コネクタ等の適切な方法で行われている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-2" class="" placeholder="内容を記入..." oninput="changeMemo(2,2,this.value)"></textarea></div></div><div id="row-2-3" class="item-row cols-normal"><div class="cell c-no">3-4</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,3,this.checked)"></div><div class="cell c-status"><select id="st-2-3" disabled="" onchange="changeStatus(2,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-3">接続箇所には絶縁テープ・絶縁キャップが施されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-3" class="" placeholder="内容を記入..." oninput="changeMemo(2,3,this.value)"></textarea></div></div><div id="row-2-4" class="item-row cols-normal"><div class="cell c-no">3-5</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,4,this.checked)"></div><div class="cell c-status"><select id="st-2-4" disabled="" onchange="changeStatus(2,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-4">電線の損傷（被覆破れ・折れ傷等）がない</span><span class="item-sub"> 確認方法：目視・絶縁測定</span></div><div class="cell c-memo"><textarea id="memo-2-4" class="" placeholder="内容を記入..." oninput="changeMemo(2,4,this.value)"></textarea></div></div><div id="row-2-5" class="item-row cols-normal"><div class="cell c-no">3-6</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,5,this.checked)"></div><div class="cell c-status"><select id="st-2-5" disabled="" onchange="changeStatus(2,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-5">電線の引っ張り・圧迫がなく余長が適切に処理されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-5" class="" placeholder="内容を記入..." oninput="changeMemo(2,5,this.value)"></textarea></div></div><div id="row-2-6" class="item-row cols-normal"><div class="cell c-no">3-7</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,6,this.checked)"></div><div class="cell c-status"><select id="st-2-6" disabled="" onchange="changeStatus(2,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-6">ボックス内の電線整理・余長が適切</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-6" class="" placeholder="内容を記入..." oninput="changeMemo(2,6,this.value)"></textarea></div></div><div id="row-2-7" class="item-row cols-normal"><div class="cell c-no">3-8</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,7,this.checked)"></div><div class="cell c-status"><select id="st-2-7" disabled="" onchange="changeStatus(2,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-7">回路番号の表示（ラベル・マーキング）が施されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-7" class="" placeholder="内容を記入..." oninput="changeMemo(2,7,this.value)"></textarea></div></div><div id="row-2-8" class="item-row cols-normal"><div class="cell c-no">3-9</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,8,this.checked)"></div><div class="cell c-status"><select id="st-2-8" disabled="" onchange="changeStatus(2,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-8">幹線と分岐回路の電線サイズが設計値と一致している</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-2-8" class="" placeholder="内容を記入..." oninput="changeMemo(2,8,this.value)"></textarea></div></div><div id="row-2-9" class="item-row cols-normal"><div class="cell c-no">3-10</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,9,this.checked)"></div><div class="cell c-status"><select id="st-2-9" disabled="" onchange="changeStatus(2,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-9">ケーブルラック上の電線は整列され、適切に固定されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-9" class="" placeholder="内容を記入..." oninput="changeMemo(2,9,this.value)"></textarea></div></div><div id="row-2-10" class="item-row cols-normal"><div class="cell c-no">3-11</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,10,this.checked)"></div><div class="cell c-status"><select id="st-2-10" disabled="" onchange="changeStatus(2,10,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-10">ケーブルラックの支持間隔が適切（2m以下等）</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-2-10" class="" placeholder="内容を記入..." oninput="changeMemo(2,10,this.value)"></textarea></div></div><div id="row-2-11" class="item-row cols-normal"><div class="cell c-no">3-12</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,11,this.checked)"></div><div class="cell c-status"><select id="st-2-11" disabled="" onchange="changeStatus(2,11,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-11">強電・弱電の分離（同一管・ラック内の混触防止）が守られている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-11" class="" placeholder="内容を記入..." oninput="changeMemo(2,11,this.value)"></textarea></div></div><div id="row-2-12" class="item-row cols-normal"><div class="cell c-no">3-13</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,12,this.checked)"></div><div class="cell c-status"><select id="st-2-12" disabled="" onchange="changeStatus(2,12,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-12">端子台・接続端子の締め付けトルクが適切（緩みがない）</span><span class="item-sub"> 確認方法：目視・トルク確認</span></div><div class="cell c-memo"><textarea id="memo-2-12" class="" placeholder="内容を記入..." oninput="changeMemo(2,12,this.value)"></textarea></div></div><div id="row-2-13" class="item-row cols-normal"><div class="cell c-no">3-14</div><div class="cell c-cat">配線工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(2,13,this.checked)"></div><div class="cell c-status"><select id="st-2-13" disabled="" onchange="changeStatus(2,13,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-2-13">端子の絶縁カバー・端子キャップが取り付けられている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-2-13" class="" placeholder="内容を記入..." oninput="changeMemo(2,13,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(3)"><span class="cat-title">🗄 分電盤・制御盤</span><span class="cat-right"><span class="cat-badge" id="badge-3">0 / 0</span><span class="chevron open" id="chev-3">▼</span></span></div><div id="body-3"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-3-0" class="item-row cols-normal"><div class="cell c-no">4-1</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,0,this.checked)"></div><div class="cell c-status"><select id="st-3-0" disabled="" onchange="changeStatus(3,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-0">分電盤の設置位置・高さが設計図と一致している</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-3-0" class="" placeholder="内容を記入..." oninput="changeMemo(3,0,this.value)"></textarea></div></div><div id="row-3-1" class="item-row cols-normal"><div class="cell c-no">4-2</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,1,this.checked)"></div><div class="cell c-status"><select id="st-3-1" disabled="" onchange="changeStatus(3,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-1">分電盤の取付が堅固で、水平・垂直が確保されている</span><span class="item-sub"> 確認方法：目視・水準確認</span></div><div class="cell c-memo"><textarea id="memo-3-1" class="" placeholder="内容を記入..." oninput="changeMemo(3,1,this.value)"></textarea></div></div><div id="row-3-2" class="item-row cols-normal"><div class="cell c-no">4-3</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,2,this.checked)"></div><div class="cell c-status"><select id="st-3-2" disabled="" onchange="changeStatus(3,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-2">主幹ブレーカーの容量・種別が設計図と一致している</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-3-2" class="" placeholder="内容を記入..." oninput="changeMemo(3,2,this.value)"></textarea></div></div><div id="row-3-3" class="item-row cols-normal"><div class="cell c-no">4-4</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,3,this.checked)"></div><div class="cell c-status"><select id="st-3-3" disabled="" onchange="changeStatus(3,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-3">各分岐ブレーカーの容量・極数が設計図と一致している</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-3-3" class="" placeholder="内容を記入..." oninput="changeMemo(3,3,this.value)"></textarea></div></div><div id="row-3-4" class="item-row cols-normal"><div class="cell c-no">4-5</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,4,this.checked)"></div><div class="cell c-status"><select id="st-3-4" disabled="" onchange="changeStatus(3,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-4">漏電ブレーカー（ELB）が必要回路に設置されている</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-3-4" class="" placeholder="内容を記入..." oninput="changeMemo(3,4,this.value)"></textarea></div></div><div id="row-3-5" class="item-row cols-normal"><div class="cell c-no">4-6</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,5,this.checked)"></div><div class="cell c-status"><select id="st-3-5" disabled="" onchange="changeStatus(3,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-5">回路表示ラベルが正確に記入されている</span><span class="item-sub"> 確認方法：目視・通電確認</span></div><div class="cell c-memo"><textarea id="memo-3-5" class="" placeholder="内容を記入..." oninput="changeMemo(3,5,this.value)"></textarea></div></div><div id="row-3-6" class="item-row cols-normal"><div class="cell c-no">4-7</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,6,this.checked)"></div><div class="cell c-status"><select id="st-3-6" disabled="" onchange="changeStatus(3,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-6">盤内の配線整理が適切で、扉開閉に支障がない</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-3-6" class="" placeholder="内容を記入..." oninput="changeMemo(3,6,this.value)"></textarea></div></div><div id="row-3-7" class="item-row cols-normal"><div class="cell c-no">4-8</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,7,this.checked)"></div><div class="cell c-status"><select id="st-3-7" disabled="" onchange="changeStatus(3,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-7">盤内に異物（切粉・端材等）が残留していない</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-3-7" class="" placeholder="内容を記入..." oninput="changeMemo(3,7,this.value)"></textarea></div></div><div id="row-3-8" class="item-row cols-normal"><div class="cell c-no">4-9</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,8,this.checked)"></div><div class="cell c-status"><select id="st-3-8" disabled="" onchange="changeStatus(3,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-8">扉・カバーの開閉がスムーズで施錠機構が正常</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-3-8" class="" placeholder="内容を記入..." oninput="changeMemo(3,8,this.value)"></textarea></div></div><div id="row-3-9" class="item-row cols-normal"><div class="cell c-no">4-10</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,9,this.checked)"></div><div class="cell c-status"><select id="st-3-9" disabled="" onchange="changeStatus(3,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-9">接地線の接続が正確で締め付けが確実</span><span class="item-sub"> 確認方法：目視・接地抵抗測定</span></div><div class="cell c-memo"><textarea id="memo-3-9" class="" placeholder="内容を記入..." oninput="changeMemo(3,9,this.value)"></textarea></div></div><div id="row-3-10" class="item-row cols-normal"><div class="cell c-no">4-11</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,10,this.checked)"></div><div class="cell c-status"><select id="st-3-10" disabled="" onchange="changeStatus(3,10,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-10">盤銘板（メーカー・型番・電圧・容量）が正しく表示されている</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-3-10" class="" placeholder="内容を記入..." oninput="changeMemo(3,10,this.value)"></textarea></div></div><div id="row-3-11" class="item-row cols-normal"><div class="cell c-no">4-12</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,11,this.checked)"></div><div class="cell c-status"><select id="st-3-11" disabled="" onchange="changeStatus(3,11,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-11">予備ブレーカースペースが設計通り確保されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-3-11" class="" placeholder="内容を記入..." oninput="changeMemo(3,11,this.value)"></textarea></div></div><div id="row-3-12" class="item-row cols-normal"><div class="cell c-no">4-13</div><div class="cell c-cat">分電盤・制御盤</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(3,12,this.checked)"></div><div class="cell c-status"><select id="st-3-12" disabled="" onchange="changeStatus(3,12,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-3-12">盤外への引出口に防護処理（ブッシング等）がある</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-3-12" class="" placeholder="内容を記入..." oninput="changeMemo(3,12,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(4)"><span class="cat-title">⚡ 幹線設備・受変電設備</span><span class="cat-right"><span class="cat-badge" id="badge-4">0 / 0</span><span class="chevron open" id="chev-4">▼</span></span></div><div id="body-4"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-4-0" class="item-row cols-normal"><div class="cell c-no">5-1</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,0,this.checked)"></div><div class="cell c-status"><select id="st-4-0" disabled="" onchange="changeStatus(4,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-0">幹線ケーブルの種別・サイズが設計図と一致している</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-4-0" class="" placeholder="内容を記入..." oninput="changeMemo(4,0,this.value)"></textarea></div></div><div id="row-4-1" class="item-row cols-normal"><div class="cell c-no">5-2</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,1,this.checked)"></div><div class="cell c-status"><select id="st-4-1" disabled="" onchange="changeStatus(4,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-1">幹線の敷設ルートが設計図と一致している</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-4-1" class="" placeholder="内容を記入..." oninput="changeMemo(4,1,this.value)"></textarea></div></div><div id="row-4-2" class="item-row cols-normal"><div class="cell c-no">5-3</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,2,this.checked)"></div><div class="cell c-status"><select id="st-4-2" disabled="" onchange="changeStatus(4,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-2">幹線ケーブルの支持間隔が適切（水平2m以下・垂直6m以下等）</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-4-2" class="" placeholder="内容を記入..." oninput="changeMemo(4,2,this.value)"></textarea></div></div><div id="row-4-3" class="item-row cols-normal"><div class="cell c-no">5-4</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,3,this.checked)"></div><div class="cell c-status"><select id="st-4-3" disabled="" onchange="changeStatus(4,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-3">ケーブルの曲げ半径が所定値以上</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-4-3" class="" placeholder="内容を記入..." oninput="changeMemo(4,3,this.value)"></textarea></div></div><div id="row-4-4" class="item-row cols-normal"><div class="cell c-no">5-5</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,4,this.checked)"></div><div class="cell c-status"><select id="st-4-4" disabled="" onchange="changeStatus(4,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-4">キュービクルの設置位置・基礎が正確</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-4-4" class="" placeholder="内容を記入..." oninput="changeMemo(4,4,this.value)"></textarea></div></div><div id="row-4-5" class="item-row cols-normal"><div class="cell c-no">5-6</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,5,this.checked)"></div><div class="cell c-status"><select id="st-4-5" disabled="" onchange="changeStatus(4,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-5">変圧器・遮断器の銘板が設計値と一致している</span><span class="item-sub"> 確認方法：銘板確認</span></div><div class="cell c-memo"><textarea id="memo-4-5" class="" placeholder="内容を記入..." oninput="changeMemo(4,5,this.value)"></textarea></div></div><div id="row-4-6" class="item-row cols-normal"><div class="cell c-no">5-7</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,6,this.checked)"></div><div class="cell c-status"><select id="st-4-6" disabled="" onchange="changeStatus(4,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-6">キュービクルの扉施錠・危険表示が適切</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-4-6" class="" placeholder="内容を記入..." oninput="changeMemo(4,6,this.value)"></textarea></div></div><div id="row-4-7" class="item-row cols-normal"><div class="cell c-no">5-8</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,7,this.checked)"></div><div class="cell c-status"><select id="st-4-7" disabled="" onchange="changeStatus(4,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-7">受電室・電気室の換気・照明・消火設備が整っている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-4-7" class="" placeholder="内容を記入..." oninput="changeMemo(4,7,this.value)"></textarea></div></div><div id="row-4-8" class="item-row cols-normal"><div class="cell c-no">5-9</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,8,this.checked)"></div><div class="cell c-status"><select id="st-4-8" disabled="" onchange="changeStatus(4,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-8">保安距離（充電部との離隔）が確保されている</span><span class="item-sub"> 確認方法：実測</span></div><div class="cell c-memo"><textarea id="memo-4-8" class="" placeholder="内容を記入..." oninput="changeMemo(4,8,this.value)"></textarea></div></div><div id="row-4-9" class="item-row cols-normal"><div class="cell c-no">5-10</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,9,this.checked)"></div><div class="cell c-status"><select id="st-4-9" disabled="" onchange="changeStatus(4,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-9">非常用発電機の設置・燃料・試運転記録が確認できる</span><span class="item-sub"> 確認方法：目視・試運転記録</span></div><div class="cell c-memo"><textarea id="memo-4-9" class="" placeholder="内容を記入..." oninput="changeMemo(4,9,this.value)"></textarea></div></div><div id="row-4-10" class="item-row cols-normal"><div class="cell c-no">5-11</div><div class="cell c-cat">幹線・受変電</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(4,10,this.checked)"></div><div class="cell c-status"><select id="st-4-10" disabled="" onchange="changeStatus(4,10,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-4-10">系統切替装置（ATS）の動作が正常</span><span class="item-sub"> 確認方法：動作試験</span></div><div class="cell c-memo"><textarea id="memo-4-10" class="" placeholder="内容を記入..." oninput="changeMemo(4,10,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(5)"><span class="cat-title">💡 照明器具・スイッチ</span><span class="cat-right"><span class="cat-badge" id="badge-5">0 / 0</span><span class="chevron open" id="chev-5">▼</span></span></div><div id="body-5"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-5-0" class="item-row cols-normal"><div class="cell c-no">6-1</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,0,this.checked)"></div><div class="cell c-status"><select id="st-5-0" disabled="" onchange="changeStatus(5,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-0">照明器具の品番・仕様が設計図・承認図と一致している</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-5-0" class="" placeholder="内容を記入..." oninput="changeMemo(5,0,this.value)"></textarea></div></div><div id="row-5-1" class="item-row cols-normal"><div class="cell c-no">6-2</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,1,this.checked)"></div><div class="cell c-status"><select id="st-5-1" disabled="" onchange="changeStatus(5,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-1">器具の取付位置・高さが設計図と一致している</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-5-1" class="" placeholder="内容を記入..." oninput="changeMemo(5,1,this.value)"></textarea></div></div><div id="row-5-2" class="item-row cols-normal"><div class="cell c-no">6-3</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,2,this.checked)"></div><div class="cell c-status"><select id="st-5-2" disabled="" onchange="changeStatus(5,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-2">器具の取付強度が十分（ぐらつき・傾きがない）</span><span class="item-sub"> 確認方法：目視・手動確認</span></div><div class="cell c-memo"><textarea id="memo-5-2" class="" placeholder="内容を記入..." oninput="changeMemo(5,2,this.value)"></textarea></div></div><div id="row-5-3" class="item-row cols-normal"><div class="cell c-no">6-4</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,3,this.checked)"></div><div class="cell c-status"><select id="st-5-3" disabled="" onchange="changeStatus(5,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-3">器具のカバー・グローブ・ランプが正常に取り付けられている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-5-3" class="" placeholder="内容を記入..." oninput="changeMemo(5,3,this.value)"></textarea></div></div><div id="row-5-4" class="item-row cols-normal"><div class="cell c-no">6-5</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,4,this.checked)"></div><div class="cell c-status"><select id="st-5-4" disabled="" onchange="changeStatus(5,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-4">全器具の点灯確認（ちらつき・異音がない）</span><span class="item-sub"> 確認方法：通電確認</span></div><div class="cell c-memo"><textarea id="memo-5-4" class="" placeholder="内容を記入..." oninput="changeMemo(5,4,this.value)"></textarea></div></div><div id="row-5-5" class="item-row cols-normal"><div class="cell c-no">6-6</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,5,this.checked)"></div><div class="cell c-status"><select id="st-5-5" disabled="" onchange="changeStatus(5,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-5">調光器の動作が正常（調光範囲・フリッカーなし）</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-5-5" class="" placeholder="内容を記入..." oninput="changeMemo(5,5,this.value)"></textarea></div></div><div id="row-5-6" class="item-row cols-normal"><div class="cell c-no">6-7</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,6,this.checked)"></div><div class="cell c-status"><select id="st-5-6" disabled="" onchange="changeStatus(5,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-6">非常用照明の点灯確認（常用電源断での自動点灯）</span><span class="item-sub"> 確認方法：動作試験</span></div><div class="cell c-memo"><textarea id="memo-5-6" class="" placeholder="内容を記入..." oninput="changeMemo(5,6,this.value)"></textarea></div></div><div id="row-5-7" class="item-row cols-normal msr-row"><div class="cell c-no">6-8</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,7,this.checked)"></div><div class="cell c-status"><select id="st-5-7" disabled="" onchange="changeStatus(5,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-7">非常用照明の照度確認（床面1lx以上）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：照度計測</span></div><div class="cell c-memo"><textarea id="memo-5-7" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(5,7,this.value)"></textarea></div></div><div id="row-5-8" class="item-row cols-normal"><div class="cell c-no">6-9</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,8,this.checked)"></div><div class="cell c-status"><select id="st-5-8" disabled="" onchange="changeStatus(5,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-8">誘導灯の点灯・表示が正常</span><span class="item-sub"> 確認方法：目視・動作確認</span></div><div class="cell c-memo"><textarea id="memo-5-8" class="" placeholder="内容を記入..." oninput="changeMemo(5,8,this.value)"></textarea></div></div><div id="row-5-9" class="item-row cols-normal"><div class="cell c-no">6-10</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,9,this.checked)"></div><div class="cell c-status"><select id="st-5-9" disabled="" onchange="changeStatus(5,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-9">誘導灯のバッテリーバックアップ動作確認（20分以上点灯）</span><span class="item-sub"> 確認方法：動作試験</span></div><div class="cell c-memo"><textarea id="memo-5-9" class="" placeholder="内容を記入..." oninput="changeMemo(5,9,this.value)"></textarea></div></div><div id="row-5-10" class="item-row cols-normal"><div class="cell c-no">6-11</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,10,this.checked)"></div><div class="cell c-status"><select id="st-5-10" disabled="" onchange="changeStatus(5,10,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-10">スイッチの品番・位置・高さが設計図と一致している</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-5-10" class="" placeholder="内容を記入..." oninput="changeMemo(5,10,this.value)"></textarea></div></div><div id="row-5-11" class="item-row cols-normal"><div class="cell c-no">6-12</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,11,this.checked)"></div><div class="cell c-status"><select id="st-5-11" disabled="" onchange="changeStatus(5,11,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-11">スイッチの動作が正確（対応回路と一致している）</span><span class="item-sub"> 確認方法：通電確認</span></div><div class="cell c-memo"><textarea id="memo-5-11" class="" placeholder="内容を記入..." oninput="changeMemo(5,11,this.value)"></textarea></div></div><div id="row-5-12" class="item-row cols-normal"><div class="cell c-no">6-13</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,12,this.checked)"></div><div class="cell c-status"><select id="st-5-12" disabled="" onchange="changeStatus(5,12,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-12">3路・4路スイッチの動作が全箇所で正常</span><span class="item-sub"> 確認方法：通電確認</span></div><div class="cell c-memo"><textarea id="memo-5-12" class="" placeholder="内容を記入..." oninput="changeMemo(5,12,this.value)"></textarea></div></div><div id="row-5-13" class="item-row cols-normal"><div class="cell c-no">6-14</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,13,this.checked)"></div><div class="cell c-status"><select id="st-5-13" disabled="" onchange="changeStatus(5,13,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-13">タイマースイッチ・人感センサーの動作が正常</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-5-13" class="" placeholder="内容を記入..." oninput="changeMemo(5,13,this.value)"></textarea></div></div><div id="row-5-14" class="item-row cols-normal"><div class="cell c-no">6-15</div><div class="cell c-cat">照明・スイッチ</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(5,14,this.checked)"></div><div class="cell c-status"><select id="st-5-14" disabled="" onchange="changeStatus(5,14,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-5-14">屋外・防湿箇所の器具は防水・防湿型が使用されている</span><span class="item-sub"> 確認方法：目視・銘板確認</span></div><div class="cell c-memo"><textarea id="memo-5-14" class="" placeholder="内容を記入..." oninput="changeMemo(5,14,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(6)"><span class="cat-title">🔌 コンセント・その他器具</span><span class="cat-right"><span class="cat-badge" id="badge-6">0 / 0</span><span class="chevron open" id="chev-6">▼</span></span></div><div id="body-6"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-6-0" class="item-row cols-normal"><div class="cell c-no">7-1</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,0,this.checked)"></div><div class="cell c-status"><select id="st-6-0" disabled="" onchange="changeStatus(6,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-0">コンセントの品番・位置・高さが設計図と一致している</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-6-0" class="" placeholder="内容を記入..." oninput="changeMemo(6,0,this.value)"></textarea></div></div><div id="row-6-1" class="item-row cols-normal"><div class="cell c-no">7-2</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,1,this.checked)"></div><div class="cell c-status"><select id="st-6-1" disabled="" onchange="changeStatus(6,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-1">コンセントの通電確認（検電器・テスター使用）</span><span class="item-sub"> 確認方法：通電確認</span></div><div class="cell c-memo"><textarea id="memo-6-1" class="" placeholder="内容を記入..." oninput="changeMemo(6,1,this.value)"></textarea></div></div><div id="row-6-2" class="item-row cols-normal msr-row"><div class="cell c-no">7-3</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,2,this.checked)"></div><div class="cell c-status"><select id="st-6-2" disabled="" onchange="changeStatus(6,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-2">コンセントの極性が正しい（L・N・E）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：テスター確認</span></div><div class="cell c-memo"><textarea id="memo-6-2" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(6,2,this.value)"></textarea></div></div><div id="row-6-3" class="item-row cols-normal"><div class="cell c-no">7-4</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,3,this.checked)"></div><div class="cell c-status"><select id="st-6-3" disabled="" onchange="changeStatus(6,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-3">接地（アース）端子への接続が確実</span><span class="item-sub"> 確認方法：テスター・目視</span></div><div class="cell c-memo"><textarea id="memo-6-3" class="" placeholder="内容を記入..." oninput="changeMemo(6,3,this.value)"></textarea></div></div><div id="row-6-4" class="item-row cols-normal"><div class="cell c-no">7-5</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,4,this.checked)"></div><div class="cell c-status"><select id="st-6-4" disabled="" onchange="changeStatus(6,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-4">防水コンセントの防水パッキン・カバーが正常</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-6-4" class="" placeholder="内容を記入..." oninput="changeMemo(6,4,this.value)"></textarea></div></div><div id="row-6-5" class="item-row cols-normal"><div class="cell c-no">7-6</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,5,this.checked)"></div><div class="cell c-status"><select id="st-6-5" disabled="" onchange="changeStatus(6,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-5">フェイスプレートの固定が確実でがたつきがない</span><span class="item-sub"> 確認方法：目視・手動確認</span></div><div class="cell c-memo"><textarea id="memo-6-5" class="" placeholder="内容を記入..." oninput="changeMemo(6,5,this.value)"></textarea></div></div><div id="row-6-6" class="item-row cols-normal"><div class="cell c-no">7-7</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,6,this.checked)"></div><div class="cell c-status"><select id="st-6-6" disabled="" onchange="changeStatus(6,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-6">専用コンセントの回路が正しく接続されている</span><span class="item-sub"> 確認方法：通電確認</span></div><div class="cell c-memo"><textarea id="memo-6-6" class="" placeholder="内容を記入..." oninput="changeMemo(6,6,this.value)"></textarea></div></div><div id="row-6-7" class="item-row cols-normal"><div class="cell c-no">7-8</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,7,this.checked)"></div><div class="cell c-status"><select id="st-6-7" disabled="" onchange="changeStatus(6,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-7">医療用コンセント（絶縁トランス系統）の確認</span><span class="item-sub"> 確認方法：動作確認・絶縁測定</span></div><div class="cell c-memo"><textarea id="memo-6-7" class="" placeholder="内容を記入..." oninput="changeMemo(6,7,this.value)"></textarea></div></div><div id="row-6-8" class="item-row cols-normal"><div class="cell c-no">7-9</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,8,this.checked)"></div><div class="cell c-status"><select id="st-6-8" disabled="" onchange="changeStatus(6,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-8">テレビ・電話・LAN端子の位置・品番が設計図と一致</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-6-8" class="" placeholder="内容を記入..." oninput="changeMemo(6,8,this.value)"></textarea></div></div><div id="row-6-9" class="item-row cols-normal msr-row"><div class="cell c-no">7-10</div><div class="cell c-cat">コンセント・器具</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(6,9,this.checked)"></div><div class="cell c-status"><select id="st-6-9" disabled="" onchange="changeStatus(6,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-6-9">テレビ端子のレベル確認</span><span class="item-sub">📐 測定値記録要 ／  確認方法：測定器確認</span></div><div class="cell c-memo"><textarea id="memo-6-9" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(6,9,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(7)"><span class="cat-title">🛡 接地工事</span><span class="cat-right"><span class="cat-badge" id="badge-7">0 / 0</span><span class="chevron open" id="chev-7">▼</span></span></div><div id="body-7"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-7-0" class="item-row cols-normal"><div class="cell c-no">8-1</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,0,this.checked)"></div><div class="cell c-status"><select id="st-7-0" disabled="" onchange="changeStatus(7,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-0">接地種別（A・B・C・D種）が設計図と一致している</span><span class="item-sub"> 確認方法：図面照合・抵抗測定</span></div><div class="cell c-memo"><textarea id="memo-7-0" class="" placeholder="内容を記入..." oninput="changeMemo(7,0,this.value)"></textarea></div></div><div id="row-7-1" class="item-row cols-normal msr-row"><div class="cell c-no">8-2</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,1,this.checked)"></div><div class="cell c-status"><select id="st-7-1" disabled="" onchange="changeStatus(7,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-1">A種接地抵抗：10Ω以下</span><span class="item-sub">📐 測定値記録要 ／  確認方法：接地抵抗計</span></div><div class="cell c-memo"><textarea id="memo-7-1" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(7,1,this.value)"></textarea></div></div><div id="row-7-2" class="item-row cols-normal msr-row"><div class="cell c-no">8-3</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,2,this.checked)"></div><div class="cell c-status"><select id="st-7-2" disabled="" onchange="changeStatus(7,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-2">B種接地抵抗：所定値以下（150/Ig Ω等）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：接地抵抗計</span></div><div class="cell c-memo"><textarea id="memo-7-2" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(7,2,this.value)"></textarea></div></div><div id="row-7-3" class="item-row cols-normal msr-row"><div class="cell c-no">8-4</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,3,this.checked)"></div><div class="cell c-status"><select id="st-7-3" disabled="" onchange="changeStatus(7,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-3">C種接地抵抗：10Ω以下（低圧300V超）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：接地抵抗計</span></div><div class="cell c-memo"><textarea id="memo-7-3" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(7,3,this.value)"></textarea></div></div><div id="row-7-4" class="item-row cols-normal msr-row"><div class="cell c-no">8-5</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,4,this.checked)"></div><div class="cell c-status"><select id="st-7-4" disabled="" onchange="changeStatus(7,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-4">D種接地抵抗：100Ω以下（低圧300V以下）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：接地抵抗計</span></div><div class="cell c-memo"><textarea id="memo-7-4" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(7,4,this.value)"></textarea></div></div><div id="row-7-5" class="item-row cols-normal"><div class="cell c-no">8-6</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,5,this.checked)"></div><div class="cell c-status"><select id="st-7-5" disabled="" onchange="changeStatus(7,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-5">接地線のサイズが規定値以上</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-7-5" class="" placeholder="内容を記入..." oninput="changeMemo(7,5,this.value)"></textarea></div></div><div id="row-7-6" class="item-row cols-normal"><div class="cell c-no">8-7</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,6,this.checked)"></div><div class="cell c-status"><select id="st-7-6" disabled="" onchange="changeStatus(7,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-6">接地線の色別が緑（または緑/黄）に統一されている</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-7-6" class="" placeholder="内容を記入..." oninput="changeMemo(7,6,this.value)"></textarea></div></div><div id="row-7-7" class="item-row cols-normal"><div class="cell c-no">8-8</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,7,this.checked)"></div><div class="cell c-status"><select id="st-7-7" disabled="" onchange="changeStatus(7,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-7">接地極の埋設深さ・位置が設計図と一致している</span><span class="item-sub"> 確認方法：施工記録確認</span></div><div class="cell c-memo"><textarea id="memo-7-7" class="" placeholder="内容を記入..." oninput="changeMemo(7,7,this.value)"></textarea></div></div><div id="row-7-8" class="item-row cols-normal"><div class="cell c-no">8-9</div><div class="cell c-cat">接地工事</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(7,8,this.checked)"></div><div class="cell c-status"><select id="st-7-8" disabled="" onchange="changeStatus(7,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-7-8">医療施設の等電位ボンディング接続が確実に施されている</span><span class="item-sub"> 確認方法：目視・抵抗測定</span></div><div class="cell c-memo"><textarea id="memo-7-8" class="" placeholder="内容を記入..." oninput="changeMemo(7,8,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(8)"><span class="cat-title">📏 絶縁抵抗測定</span><span class="cat-right"><span class="cat-badge" id="badge-8">0 / 0</span><span class="chevron open" id="chev-8">▼</span></span></div><div id="body-8"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-8-0" class="item-row cols-normal msr-row"><div class="cell c-no">9-1</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,0,this.checked)"></div><div class="cell c-status"><select id="st-8-0" disabled="" onchange="changeStatus(8,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-0">低圧回路（100V系）絶縁抵抗：0.1MΩ以上（電技第58条）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：絶縁抵抗計（500V）</span></div><div class="cell c-memo"><textarea id="memo-8-0" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(8,0,this.value)"></textarea></div></div><div id="row-8-1" class="item-row cols-normal msr-row"><div class="cell c-no">9-2</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,1,this.checked)"></div><div class="cell c-status"><select id="st-8-1" disabled="" onchange="changeStatus(8,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-1">低圧回路（200V系）絶縁抵抗：0.2MΩ以上</span><span class="item-sub">📐 測定値記録要 ／  確認方法：絶縁抵抗計（500V）</span></div><div class="cell c-memo"><textarea id="memo-8-1" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(8,1,this.value)"></textarea></div></div><div id="row-8-2" class="item-row cols-normal msr-row"><div class="cell c-no">9-3</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,2,this.checked)"></div><div class="cell c-status"><select id="st-8-2" disabled="" onchange="changeStatus(8,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-2">使用電圧300V超〜600V以下：0.4MΩ以上</span><span class="item-sub">📐 測定値記録要 ／  確認方法：絶縁抵抗計（1000V）</span></div><div class="cell c-memo"><textarea id="memo-8-2" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(8,2,this.value)"></textarea></div></div><div id="row-8-3" class="item-row cols-normal msr-row"><div class="cell c-no">9-4</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,3,this.checked)"></div><div class="cell c-status"><select id="st-8-3" disabled="" onchange="changeStatus(8,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-3">幹線ケーブルの絶縁抵抗が基準値以上（測定記録添付）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：絶縁抵抗計</span></div><div class="cell c-memo"><textarea id="memo-8-3" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(8,3,this.value)"></textarea></div></div><div id="row-8-4" class="item-row cols-normal msr-row"><div class="cell c-no">9-5</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,4,this.checked)"></div><div class="cell c-status"><select id="st-8-4" disabled="" onchange="changeStatus(8,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-4">非常用照明回路の絶縁抵抗測定</span><span class="item-sub">📐 測定値記録要 ／  確認方法：絶縁抵抗計</span></div><div class="cell c-memo"><textarea id="memo-8-4" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(8,4,this.value)"></textarea></div></div><div id="row-8-5" class="item-row cols-normal"><div class="cell c-no">9-6</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,5,this.checked)"></div><div class="cell c-status"><select id="st-8-5" disabled="" onchange="changeStatus(8,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-5">測定時はランプ・電子機器等を切り離して実施していること</span><span class="item-sub"> 確認方法：施工者確認</span></div><div class="cell c-memo"><textarea id="memo-8-5" class="" placeholder="内容を記入..." oninput="changeMemo(8,5,this.value)"></textarea></div></div><div id="row-8-6" class="item-row cols-normal"><div class="cell c-no">9-7</div><div class="cell c-cat">絶縁抵抗測定</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(8,6,this.checked)"></div><div class="cell c-status"><select id="st-8-6" disabled="" onchange="changeStatus(8,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-8-6">測定結果が試験成績書に記載されている</span><span class="item-sub"> 確認方法：書類確認</span></div><div class="cell c-memo"><textarea id="memo-8-6" class="" placeholder="内容を記入..." oninput="changeMemo(8,6,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(9)"><span class="cat-title">🚨 防災・消防設備</span><span class="cat-right"><span class="cat-badge" id="badge-9">0 / 0</span><span class="chevron open" id="chev-9">▼</span></span></div><div id="body-9"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-9-0" class="item-row cols-normal"><div class="cell c-no">10-1</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,0,this.checked)"></div><div class="cell c-status"><select id="st-9-0" disabled="" onchange="changeStatus(9,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-0">自動火災報知設備の感知器種別・設置位置が消防法に適合している</span><span class="item-sub"> 確認方法：目視・図面照合</span></div><div class="cell c-memo"><textarea id="memo-9-0" class="" placeholder="内容を記入..." oninput="changeMemo(9,0,this.value)"></textarea></div></div><div id="row-9-1" class="item-row cols-normal"><div class="cell c-no">10-2</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,1,this.checked)"></div><div class="cell c-status"><select id="st-9-1" disabled="" onchange="changeStatus(9,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-1">感知器の取付高さ・取付面との距離が基準値以内</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-9-1" class="" placeholder="内容を記入..." oninput="changeMemo(9,1,this.value)"></textarea></div></div><div id="row-9-2" class="item-row cols-normal"><div class="cell c-no">10-3</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,2,this.checked)"></div><div class="cell c-status"><select id="st-9-2" disabled="" onchange="changeStatus(9,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-2">感知器の作動試験を実施している（試験記録添付）</span><span class="item-sub"> 確認方法：動作試験記録確認</span></div><div class="cell c-memo"><textarea id="memo-9-2" class="" placeholder="内容を記入..." oninput="changeMemo(9,2,this.value)"></textarea></div></div><div id="row-9-3" class="item-row cols-normal"><div class="cell c-no">10-4</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,3,this.checked)"></div><div class="cell c-status"><select id="st-9-3" disabled="" onchange="changeStatus(9,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-3">受信機の表示・操作が正常</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-9-3" class="" placeholder="内容を記入..." oninput="changeMemo(9,3,this.value)"></textarea></div></div><div id="row-9-4" class="item-row cols-normal"><div class="cell c-no">10-5</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,4,this.checked)"></div><div class="cell c-status"><select id="st-9-4" disabled="" onchange="changeStatus(9,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-4">発信機（押しボタン）の位置・表示が基準に適合</span><span class="item-sub"> 確認方法：目視・実測</span></div><div class="cell c-memo"><textarea id="memo-9-4" class="" placeholder="内容を記入..." oninput="changeMemo(9,4,this.value)"></textarea></div></div><div id="row-9-5" class="item-row cols-normal msr-row"><div class="cell c-no">10-6</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,5,this.checked)"></div><div class="cell c-status"><select id="st-9-5" disabled="" onchange="changeStatus(9,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-5">非常放送設備の全スピーカーの音圧が基準以上</span><span class="item-sub">📐 測定値記録要 ／  確認方法：音圧計測</span></div><div class="cell c-memo"><textarea id="memo-9-5" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(9,5,this.value)"></textarea></div></div><div id="row-9-6" class="item-row cols-normal"><div class="cell c-no">10-7</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,6,this.checked)"></div><div class="cell c-status"><select id="st-9-6" disabled="" onchange="changeStatus(9,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-6">非常放送の系統切替・優先放送機能が正常</span><span class="item-sub"> 確認方法：動作試験</span></div><div class="cell c-memo"><textarea id="memo-9-6" class="" placeholder="内容を記入..." oninput="changeMemo(9,6,this.value)"></textarea></div></div><div id="row-9-7" class="item-row cols-normal"><div class="cell c-no">10-8</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,7,this.checked)"></div><div class="cell c-status"><select id="st-9-7" disabled="" onchange="changeStatus(9,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-7">消防設備の動作電源（非常電源）が確保されている</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-9-7" class="" placeholder="内容を記入..." oninput="changeMemo(9,7,this.value)"></textarea></div></div><div id="row-9-8" class="item-row cols-normal"><div class="cell c-no">10-9</div><div class="cell c-cat">防災・消防</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(9,8,this.checked)"></div><div class="cell c-status"><select id="st-9-8" disabled="" onchange="changeStatus(9,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-9-8">消防署への届出・検査証の取得を確認</span><span class="item-sub"> 確認方法：書類確認</span></div><div class="cell c-memo"><textarea id="memo-9-8" class="" placeholder="内容を記入..." oninput="changeMemo(9,8,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(10)"><span class="cat-title">📡 弱電設備</span><span class="cat-right"><span class="cat-badge" id="badge-10">0 / 0</span><span class="chevron open" id="chev-10">▼</span></span></div><div id="body-10"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-10-0" class="item-row cols-normal"><div class="cell c-no">11-1</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,0,this.checked)"></div><div class="cell c-status"><select id="st-10-0" disabled="" onchange="changeStatus(10,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-0">インターホン・映像設備の動作確認</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-10-0" class="" placeholder="内容を記入..." oninput="changeMemo(10,0,this.value)"></textarea></div></div><div id="row-10-1" class="item-row cols-normal msr-row"><div class="cell c-no">11-2</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,1,this.checked)"></div><div class="cell c-status"><select id="st-10-1" disabled="" onchange="changeStatus(10,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-1">テレビ共聴設備のレベル測定・映像確認</span><span class="item-sub">📐 測定値記録要 ／  確認方法：測定器確認</span></div><div class="cell c-memo"><textarea id="memo-10-1" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(10,1,this.value)"></textarea></div></div><div id="row-10-2" class="item-row cols-normal"><div class="cell c-no">11-3</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,2,this.checked)"></div><div class="cell c-status"><select id="st-10-2" disabled="" onchange="changeStatus(10,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-2">電話・LAN配線の導通・結線確認</span><span class="item-sub"> 確認方法：テスター・導通確認</span></div><div class="cell c-memo"><textarea id="memo-10-2" class="" placeholder="内容を記入..." oninput="changeMemo(10,2,this.value)"></textarea></div></div><div id="row-10-3" class="item-row cols-normal msr-row"><div class="cell c-no">11-4</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,3,this.checked)"></div><div class="cell c-status"><select id="st-10-3" disabled="" onchange="changeStatus(10,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-3">LAN配線のカテゴリー・性能確認（Cat6等）</span><span class="item-sub">📐 測定値記録要 ／  確認方法：ケーブルテスター</span></div><div class="cell c-memo"><textarea id="memo-10-3" class="" placeholder="測定値・判定を記入..." oninput="changeMemo(10,3,this.value)"></textarea></div></div><div id="row-10-4" class="item-row cols-normal"><div class="cell c-no">11-5</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,4,this.checked)"></div><div class="cell c-status"><select id="st-10-4" disabled="" onchange="changeStatus(10,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-4">セキュリティ設備（カメラ・カードリーダー等）の動作確認</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-10-4" class="" placeholder="内容を記入..." oninput="changeMemo(10,4,this.value)"></textarea></div></div><div id="row-10-5" class="item-row cols-normal"><div class="cell c-no">11-6</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,5,this.checked)"></div><div class="cell c-status"><select id="st-10-5" disabled="" onchange="changeStatus(10,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-5">ナースコール設備の全室動作確認</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-10-5" class="" placeholder="内容を記入..." oninput="changeMemo(10,5,this.value)"></textarea></div></div><div id="row-10-6" class="item-row cols-normal"><div class="cell c-no">11-7</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,6,this.checked)"></div><div class="cell c-status"><select id="st-10-6" disabled="" onchange="changeStatus(10,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-6">拡声放送設備のスピーカー・アンプ動作確認</span><span class="item-sub"> 確認方法：動作確認</span></div><div class="cell c-memo"><textarea id="memo-10-6" class="" placeholder="内容を記入..." oninput="changeMemo(10,6,this.value)"></textarea></div></div><div id="row-10-7" class="item-row cols-normal"><div class="cell c-no">11-8</div><div class="cell c-cat">弱電設備</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(10,7,this.checked)"></div><div class="cell c-status"><select id="st-10-7" disabled="" onchange="changeStatus(10,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-10-7">弱電盤内の配線整理・ラベル表示が適切</span><span class="item-sub"> 確認方法：目視</span></div><div class="cell c-memo"><textarea id="memo-10-7" class="" placeholder="内容を記入..." oninput="changeMemo(10,7,this.value)"></textarea></div></div></div></div><div class="cat-block"><div class="cat-header" onclick="toggleCat(11)"><span class="cat-title">✅ 最終確認・引渡し</span><span class="cat-right"><span class="cat-badge" id="badge-11">0 / 0</span><span class="chevron open" id="chev-11">▼</span></span></div><div id="body-11"><div class="tbl-head cols-normal"><span>番号</span><span>区分</span><span>該当</span><span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span></div><div id="row-11-0" class="item-row cols-normal"><div class="cell c-no">12-1</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,0,this.checked)"></div><div class="cell c-status"><select id="st-11-0" disabled="" onchange="changeStatus(11,0,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-0">全回路の通電確認・負荷試験が完了している</span><span class="item-sub"> 確認方法：通電確認記録</span></div><div class="cell c-memo"><textarea id="memo-11-0" class="" placeholder="内容を記入..." oninput="changeMemo(11,0,this.value)"></textarea></div></div><div id="row-11-1" class="item-row cols-normal"><div class="cell c-no">12-2</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,1,this.checked)"></div><div class="cell c-status"><select id="st-11-1" disabled="" onchange="changeStatus(11,1,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-1">系統図・回路表が最終施工状態と一致している（竣工図）</span><span class="item-sub"> 確認方法：竣工図確認</span></div><div class="cell c-memo"><textarea id="memo-11-1" class="" placeholder="内容を記入..." oninput="changeMemo(11,1,this.value)"></textarea></div></div><div id="row-11-2" class="item-row cols-normal"><div class="cell c-no">12-3</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,2,this.checked)"></div><div class="cell c-status"><select id="st-11-2" disabled="" onchange="changeStatus(11,2,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-2">試験成績書・測定記録が揃っている</span><span class="item-sub"> 確認方法：書類一式確認</span></div><div class="cell c-memo"><textarea id="memo-11-2" class="" placeholder="内容を記入..." oninput="changeMemo(11,2,this.value)"></textarea></div></div><div id="row-11-3" class="item-row cols-normal"><div class="cell c-no">12-4</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,3,this.checked)"></div><div class="cell c-status"><select id="st-11-3" disabled="" onchange="changeStatus(11,3,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-3">取扱説明書・保証書・承認図が揃っている</span><span class="item-sub"> 確認方法：書類一式確認</span></div><div class="cell c-memo"><textarea id="memo-11-3" class="" placeholder="内容を記入..." oninput="changeMemo(11,3,this.value)"></textarea></div></div><div id="row-11-4" class="item-row cols-normal"><div class="cell c-no">12-5</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,4,this.checked)"></div><div class="cell c-status"><select id="st-11-4" disabled="" onchange="changeStatus(11,4,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-4">スペアブレーカー・スペアランプ等の引渡し品が揃っている</span><span class="item-sub"> 確認方法：現物確認</span></div><div class="cell c-memo"><textarea id="memo-11-4" class="" placeholder="内容を記入..." oninput="changeMemo(11,4,this.value)"></textarea></div></div><div id="row-11-5" class="item-row cols-normal"><div class="cell c-no">12-6</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,5,this.checked)"></div><div class="cell c-status"><select id="st-11-5" disabled="" onchange="changeStatus(11,5,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-5">鍵（電気室・キュービクル・盤等）の引渡しが完了</span><span class="item-sub"> 確認方法：現物確認</span></div><div class="cell c-memo"><textarea id="memo-11-5" class="" placeholder="内容を記入..." oninput="changeMemo(11,5,this.value)"></textarea></div></div><div id="row-11-6" class="item-row cols-normal"><div class="cell c-no">12-7</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,6,this.checked)"></div><div class="cell c-status"><select id="st-11-6" disabled="" onchange="changeStatus(11,6,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-6">施主・維持管理者への操作説明が完了している</span><span class="item-sub"> 確認方法：説明記録</span></div><div class="cell c-memo"><textarea id="memo-11-6" class="" placeholder="内容を記入..." oninput="changeMemo(11,6,this.value)"></textarea></div></div><div id="row-11-7" class="item-row cols-normal"><div class="cell c-no">12-8</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,7,this.checked)"></div><div class="cell c-status"><select id="st-11-7" disabled="" onchange="changeStatus(11,7,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-7">指摘事項の是正が完了し、再確認済みである</span><span class="item-sub"> 確認方法：指摘記録・現物確認</span></div><div class="cell c-memo"><textarea id="memo-11-7" class="" placeholder="内容を記入..." oninput="changeMemo(11,7,this.value)"></textarea></div></div><div id="row-11-8" class="item-row cols-normal"><div class="cell c-no">12-9</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,8,this.checked)"></div><div class="cell c-status"><select id="st-11-8" disabled="" onchange="changeStatus(11,8,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-8">保険・法定検査（電気主任技術者検査等）が完了</span><span class="item-sub"> 確認方法：書類確認</span></div><div class="cell c-memo"><textarea id="memo-11-8" class="" placeholder="内容を記入..." oninput="changeMemo(11,8,this.value)"></textarea></div></div><div id="row-11-9" class="item-row cols-normal"><div class="cell c-no">12-10</div><div class="cell c-cat">最終確認・引渡し</div><div class="cell c-applicable"><input type="checkbox" onchange="changeApplicable(11,9,this.checked)"></div><div class="cell c-status"><select id="st-11-9" disabled="" onchange="changeStatus(11,9,this.value)"><option value="pending" selected="">―</option><option value="ok">○ 良</option><option value="ng">× 手直し</option><option value="na">N/A</option></select></div><div class="cell c-text"><span class="item-text" id="txt-11-9">施主サイン・引渡し確認書の締結</span><span class="item-sub"> 確認方法：書類確認</span></div><div class="cell c-memo"><textarea id="memo-11-9" class="" placeholder="内容を記入..." oninput="changeMemo(11,9,this.value)"></textarea></div></div></div></div></div>
+<div class="footer">※本チェックリストは施工品質確認の補助ツールです。適用仕様書・法令の最新版を必ず参照してください。</div>
+</div>
+
+<!-- 指摘事項まとめモーダル -->
+<div class="modal-overlay" id="ng-modal">
+  <div class="modal-box">
+    <div class="modal-header supervisor" id="modal-header">
+      <h2 id="modal-title">📋 指摘事項まとめ（別紙）</h2>
+      <div class="ng-sheet-stamp" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);"><div style="width:58px;height:58px;border:1px solid rgba(255,255,255,0.5);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:9px;color:rgba(255,255,255,0.6);">捺印</div></div>
+    <button class="modal-close" onclick="closeNgModal()">✕</button>
+    </div>
+    <div class="modal-meta">
+      <div class="mrow">
+        <div class="mi"><span class="ml">工事件名：</span><span id="ng-proj">—</span></div>
+        <div class="mi"><span class="ml">工事業者：</span><span id="ng-contractor">—</span></div>
+        <div class="mi"><span class="ml">現場代理人：</span><span id="ng-agent">—</span></div>
+        <div class="mi"><span class="ml">検査者：</span><span id="ng-inspector">—</span></div>
+        <div class="mi"><span class="ml">検査日：</span><span id="ng-date">—</span></div>
+      </div>
+    </div>
+    <div class="modal-body ng-sheet-wrap">
+      <div class="ng-count-bar supervisor" id="ng-count-bar">指摘件数：0件</div>
+      <div class="modal-actions">
+        <button class="btn btn-primary" onclick="printNgSheet()">📄 PDF出力（A4縦）</button>
+        <button class="btn btn-warn" onclick="printNgSheet()">🖨 チェックリストと一緒に印刷</button>
+        <button class="btn btn-success" onclick="exportNgCSV()">📥 指摘一覧をCSV出力</button>
+      </div>
+      <table class="ng-table">
+        <thead id="ng-thead"></thead>
+        <tbody id="ng-tbody"></tbody>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-note" id="modal-note">※「×手直し」選択または指摘内容欄に記入のある項目を自動集計</span>
+      <button class="btn btn-outline" onclick="closeNgModal()">閉じる</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== チェック項目データ =====
+const CATS = [
+  {id:'common',title:'共通事項・施工全般',icon:'🏗',subcat:'施工全般',items:[
+    {no:'1-1', t:'設計図書（設計図・仕様書・承認図）と施工内容が一致している',m:'目視・図面照合'},
+    {no:'1-2', t:'設計変更が生じた場合、変更指示書が発行され記録されている',m:'書類確認'},
+    {no:'1-3', t:'使用材料が設計図書指定の品番・規格品であることを確認',m:'納品書・ラベル確認'},
+    {no:'1-4', t:'JIS・JEC・JEM等の規格品であることを確認',m:'刻印・ラベル確認'},
+    {no:'1-5', t:'工事写真が各工程で適切に撮影・整理されている',m:'写真帳確認'},
+    {no:'1-6', t:'施工記録・試験成績書が揃っている',m:'書類確認'},
+    {no:'1-7', t:'既存設備への影響（停電・干渉等）が適切に処理されている',m:'目視・書類'},
+    {no:'1-8', t:'養生・清掃が完了し、工事に伴う汚損・損傷がない',m:'目視全般'},
+    {no:'1-9', t:'廃材・端材が適切に処分されている',m:'目視'},
+    {no:'1-10',t:'施工業者の資格（電気工事士・施工管理技士等）が適切か',m:'資格証確認'},
+  ]},
+  {id:'conduit',title:'配管工事',icon:'📦',subcat:'配管工事',items:[
+    {no:'2-1', t:'電線管の種別・サイズが設計図と一致している（E管・G管・PF管等）',m:'目視・図面照合'},
+    {no:'2-2', t:'配管ルートが設計図と一致し、他設備との干渉がない',m:'目視・図面照合'},
+    {no:'2-3', t:'露出配管の固定ピッチが適切である（直線部1.5m以下等）',m:'目視・実測'},
+    {no:'2-4', t:'曲げ半径が電線管の所定値以上で、折れ・変形がない',m:'目視・実測'},
+    {no:'2-5', t:'ボックス・プルボックスのサイズ・位置が適切',m:'目視・図面照合'},
+    {no:'2-6', t:'ボックスの取付強度が十分で、壁面・天井面との隙間がない',m:'目視・手動確認'},
+    {no:'2-7', t:'管端処理（ブッシング・エンドキャップ等）が施されている',m:'目視'},
+    {no:'2-8', t:'可とう管（フレキ）の使用箇所・長さが適切（原則0.8m以下）',m:'目視・実測'},
+    {no:'2-9', t:'防火区画貫通部の処理（耐火充填材等）が適切に施されている',m:'目視・書類確認'},
+    {no:'2-10',t:'屋外・湿潤箇所の配管は防水型で管口処理が施されている',m:'目視'},
+    {no:'2-11',t:'地中埋設管の埋設深さが基準以上（60cm以上等）',m:'施工記録・実測'},
+    {no:'2-12',t:'支持金物の腐食防止処理（ドブ漬け・塗装等）が施されている',m:'目視'},
+    {no:'2-13',t:'スラブ・壁内隠蔽配管に亀裂・変形がない',m:'目視'},
+    {no:'2-14',t:'プルボックス内の整線・余長が適切',m:'目視'},
+  ]},
+  {id:'wiring',title:'配線工事',icon:'🔗',subcat:'配線工事',items:[
+    {no:'3-1', t:'使用電線の種別・サイズが設計図と一致している（CV・IV・VVF等）',m:'目視・図面照合'},
+    {no:'3-2', t:'電線の色別が統一されている（L1:黒/茶 L2:赤 N:白/青 E:緑）',m:'目視'},
+    {no:'3-3', t:'電線の接続はリングスリーブ・差込形コネクタ等の適切な方法で行われている',m:'目視'},
+    {no:'3-4', t:'接続箇所には絶縁テープ・絶縁キャップが施されている',m:'目視'},
+    {no:'3-5', t:'電線の損傷（被覆破れ・折れ傷等）がない',m:'目視・絶縁測定'},
+    {no:'3-6', t:'電線の引っ張り・圧迫がなく余長が適切に処理されている',m:'目視'},
+    {no:'3-7', t:'ボックス内の電線整理・余長が適切',m:'目視'},
+    {no:'3-8', t:'回路番号の表示（ラベル・マーキング）が施されている',m:'目視'},
+    {no:'3-9', t:'幹線と分岐回路の電線サイズが設計値と一致している',m:'目視・図面照合'},
+    {no:'3-10',t:'ケーブルラック上の電線は整列され、適切に固定されている',m:'目視'},
+    {no:'3-11',t:'ケーブルラックの支持間隔が適切（2m以下等）',m:'目視・実測'},
+    {no:'3-12',t:'強電・弱電の分離（同一管・ラック内の混触防止）が守られている',m:'目視'},
+    {no:'3-13',t:'端子台・接続端子の締め付けトルクが適切（緩みがない）',m:'目視・トルク確認'},
+    {no:'3-14',t:'端子の絶縁カバー・端子キャップが取り付けられている',m:'目視'},
+  ]},
+  {id:'panel',title:'分電盤・制御盤',icon:'🗄',subcat:'分電盤・制御盤',items:[
+    {no:'4-1', t:'分電盤の設置位置・高さが設計図と一致している',m:'目視・実測'},
+    {no:'4-2', t:'分電盤の取付が堅固で、水平・垂直が確保されている',m:'目視・水準確認'},
+    {no:'4-3', t:'主幹ブレーカーの容量・種別が設計図と一致している',m:'目視・銘板確認'},
+    {no:'4-4', t:'各分岐ブレーカーの容量・極数が設計図と一致している',m:'目視・銘板確認'},
+    {no:'4-5', t:'漏電ブレーカー（ELB）が必要回路に設置されている',m:'目視・銘板確認'},
+    {no:'4-6', t:'回路表示ラベルが正確に記入されている',m:'目視・通電確認'},
+    {no:'4-7', t:'盤内の配線整理が適切で、扉開閉に支障がない',m:'目視'},
+    {no:'4-8', t:'盤内に異物（切粉・端材等）が残留していない',m:'目視'},
+    {no:'4-9', t:'扉・カバーの開閉がスムーズで施錠機構が正常',m:'動作確認'},
+    {no:'4-10',t:'接地線の接続が正確で締め付けが確実',m:'目視・接地抵抗測定'},
+    {no:'4-11',t:'盤銘板（メーカー・型番・電圧・容量）が正しく表示されている',m:'目視・銘板確認'},
+    {no:'4-12',t:'予備ブレーカースペースが設計通り確保されている',m:'目視'},
+    {no:'4-13',t:'盤外への引出口に防護処理（ブッシング等）がある',m:'目視'},
+  ]},
+  {id:'main',title:'幹線設備・受変電設備',icon:'⚡',subcat:'幹線・受変電',items:[
+    {no:'5-1', t:'幹線ケーブルの種別・サイズが設計図と一致している',m:'目視・銘板確認'},
+    {no:'5-2', t:'幹線の敷設ルートが設計図と一致している',m:'目視・図面照合'},
+    {no:'5-3', t:'幹線ケーブルの支持間隔が適切（水平2m以下・垂直6m以下等）',m:'目視・実測'},
+    {no:'5-4', t:'ケーブルの曲げ半径が所定値以上',m:'目視・実測'},
+    {no:'5-5', t:'キュービクルの設置位置・基礎が正確',m:'目視・図面照合'},
+    {no:'5-6', t:'変圧器・遮断器の銘板が設計値と一致している',m:'銘板確認'},
+    {no:'5-7', t:'キュービクルの扉施錠・危険表示が適切',m:'目視'},
+    {no:'5-8', t:'受電室・電気室の換気・照明・消火設備が整っている',m:'目視'},
+    {no:'5-9', t:'保安距離（充電部との離隔）が確保されている',m:'実測'},
+    {no:'5-10',t:'非常用発電機の設置・燃料・試運転記録が確認できる',m:'目視・試運転記録'},
+    {no:'5-11',t:'系統切替装置（ATS）の動作が正常',m:'動作試験'},
+  ]},
+  {id:'lighting',title:'照明器具・スイッチ',icon:'💡',subcat:'照明・スイッチ',items:[
+    {no:'6-1', t:'照明器具の品番・仕様が設計図・承認図と一致している',m:'目視・銘板確認'},
+    {no:'6-2', t:'器具の取付位置・高さが設計図と一致している',m:'目視・実測'},
+    {no:'6-3', t:'器具の取付強度が十分（ぐらつき・傾きがない）',m:'目視・手動確認'},
+    {no:'6-4', t:'器具のカバー・グローブ・ランプが正常に取り付けられている',m:'目視'},
+    {no:'6-5', t:'全器具の点灯確認（ちらつき・異音がない）',m:'通電確認'},
+    {no:'6-6', t:'調光器の動作が正常（調光範囲・フリッカーなし）',m:'動作確認'},
+    {no:'6-7', t:'非常用照明の点灯確認（常用電源断での自動点灯）',m:'動作試験'},
+    {no:'6-8', t:'非常用照明の照度確認（床面1lx以上）',m:'照度計測',isMeasure:true},
+    {no:'6-9', t:'誘導灯の点灯・表示が正常',m:'目視・動作確認'},
+    {no:'6-10',t:'誘導灯のバッテリーバックアップ動作確認（20分以上点灯）',m:'動作試験'},
+    {no:'6-11',t:'スイッチの品番・位置・高さが設計図と一致している',m:'目視・実測'},
+    {no:'6-12',t:'スイッチの動作が正確（対応回路と一致している）',m:'通電確認'},
+    {no:'6-13',t:'3路・4路スイッチの動作が全箇所で正常',m:'通電確認'},
+    {no:'6-14',t:'タイマースイッチ・人感センサーの動作が正常',m:'動作確認'},
+    {no:'6-15',t:'屋外・防湿箇所の器具は防水・防湿型が使用されている',m:'目視・銘板確認'},
+  ]},
+  {id:'outlet',title:'コンセント・その他器具',icon:'🔌',subcat:'コンセント・器具',items:[
+    {no:'7-1', t:'コンセントの品番・位置・高さが設計図と一致している',m:'目視・実測'},
+    {no:'7-2', t:'コンセントの通電確認（検電器・テスター使用）',m:'通電確認'},
+    {no:'7-3', t:'コンセントの極性が正しい（L・N・E）',m:'テスター確認',isMeasure:true},
+    {no:'7-4', t:'接地（アース）端子への接続が確実',m:'テスター・目視'},
+    {no:'7-5', t:'防水コンセントの防水パッキン・カバーが正常',m:'目視'},
+    {no:'7-6', t:'フェイスプレートの固定が確実でがたつきがない',m:'目視・手動確認'},
+    {no:'7-7', t:'専用コンセントの回路が正しく接続されている',m:'通電確認'},
+    {no:'7-8', t:'医療用コンセント（絶縁トランス系統）の確認',m:'動作確認・絶縁測定'},
+    {no:'7-9', t:'テレビ・電話・LAN端子の位置・品番が設計図と一致',m:'目視・図面照合'},
+    {no:'7-10',t:'テレビ端子のレベル確認',m:'測定器確認',isMeasure:true},
+  ]},
+  {id:'grounding',title:'接地工事',icon:'🛡',subcat:'接地工事',items:[
+    {no:'8-1', t:'接地種別（A・B・C・D種）が設計図と一致している',m:'図面照合・抵抗測定'},
+    {no:'8-2', t:'A種接地抵抗：10Ω以下',m:'接地抵抗計',isMeasure:true},
+    {no:'8-3', t:'B種接地抵抗：所定値以下（150/Ig Ω等）',m:'接地抵抗計',isMeasure:true},
+    {no:'8-4', t:'C種接地抵抗：10Ω以下（低圧300V超）',m:'接地抵抗計',isMeasure:true},
+    {no:'8-5', t:'D種接地抵抗：100Ω以下（低圧300V以下）',m:'接地抵抗計',isMeasure:true},
+    {no:'8-6', t:'接地線のサイズが規定値以上',m:'目視・実測'},
+    {no:'8-7', t:'接地線の色別が緑（または緑/黄）に統一されている',m:'目視'},
+    {no:'8-8', t:'接地極の埋設深さ・位置が設計図と一致している',m:'施工記録確認'},
+    {no:'8-9', t:'医療施設の等電位ボンディング接続が確実に施されている',m:'目視・抵抗測定'},
+  ]},
+  {id:'insulation',title:'絶縁抵抗測定',icon:'📏',subcat:'絶縁抵抗測定',items:[
+    {no:'9-1', t:'低圧回路（100V系）絶縁抵抗：0.1MΩ以上（電技第58条）',m:'絶縁抵抗計（500V）',isMeasure:true},
+    {no:'9-2', t:'低圧回路（200V系）絶縁抵抗：0.2MΩ以上',m:'絶縁抵抗計（500V）',isMeasure:true},
+    {no:'9-3', t:'使用電圧300V超〜600V以下：0.4MΩ以上',m:'絶縁抵抗計（1000V）',isMeasure:true},
+    {no:'9-4', t:'幹線ケーブルの絶縁抵抗が基準値以上（測定記録添付）',m:'絶縁抵抗計',isMeasure:true},
+    {no:'9-5', t:'非常用照明回路の絶縁抵抗測定',m:'絶縁抵抗計',isMeasure:true},
+    {no:'9-6', t:'測定時はランプ・電子機器等を切り離して実施していること',m:'施工者確認'},
+    {no:'9-7', t:'測定結果が試験成績書に記載されている',m:'書類確認'},
+  ]},
+  {id:'fire',title:'防災・消防設備',icon:'🚨',subcat:'防災・消防',items:[
+    {no:'10-1',t:'自動火災報知設備の感知器種別・設置位置が消防法に適合している',m:'目視・図面照合'},
+    {no:'10-2',t:'感知器の取付高さ・取付面との距離が基準値以内',m:'目視・実測'},
+    {no:'10-3',t:'感知器の作動試験を実施している（試験記録添付）',m:'動作試験記録確認'},
+    {no:'10-4',t:'受信機の表示・操作が正常',m:'動作確認'},
+    {no:'10-5',t:'発信機（押しボタン）の位置・表示が基準に適合',m:'目視・実測'},
+    {no:'10-6',t:'非常放送設備の全スピーカーの音圧が基準以上',m:'音圧計測',isMeasure:true},
+    {no:'10-7',t:'非常放送の系統切替・優先放送機能が正常',m:'動作試験'},
+    {no:'10-8',t:'消防設備の動作電源（非常電源）が確保されている',m:'動作確認'},
+    {no:'10-9',t:'消防署への届出・検査証の取得を確認',m:'書類確認'},
+  ]},
+  {id:'weak',title:'弱電設備',icon:'📡',subcat:'弱電設備',items:[
+    {no:'11-1',t:'インターホン・映像設備の動作確認',m:'動作確認'},
+    {no:'11-2',t:'テレビ共聴設備のレベル測定・映像確認',m:'測定器確認',isMeasure:true},
+    {no:'11-3',t:'電話・LAN配線の導通・結線確認',m:'テスター・導通確認'},
+    {no:'11-4',t:'LAN配線のカテゴリー・性能確認（Cat6等）',m:'ケーブルテスター',isMeasure:true},
+    {no:'11-5',t:'セキュリティ設備（カメラ・カードリーダー等）の動作確認',m:'動作確認'},
+    {no:'11-6',t:'ナースコール設備の全室動作確認',m:'動作確認'},
+    {no:'11-7',t:'拡声放送設備のスピーカー・アンプ動作確認',m:'動作確認'},
+    {no:'11-8',t:'弱電盤内の配線整理・ラベル表示が適切',m:'目視'},
+  ]},
+  {id:'final',title:'最終確認・引渡し',icon:'✅',subcat:'最終確認・引渡し',items:[
+    {no:'12-1', t:'全回路の通電確認・負荷試験が完了している',m:'通電確認記録'},
+    {no:'12-2', t:'系統図・回路表が最終施工状態と一致している（竣工図）',m:'竣工図確認'},
+    {no:'12-3', t:'試験成績書・測定記録が揃っている',m:'書類一式確認'},
+    {no:'12-4', t:'取扱説明書・保証書・承認図が揃っている',m:'書類一式確認'},
+    {no:'12-5', t:'スペアブレーカー・スペアランプ等の引渡し品が揃っている',m:'現物確認'},
+    {no:'12-6', t:'鍵（電気室・キュービクル・盤等）の引渡しが完了',m:'現物確認'},
+    {no:'12-7', t:'施主・維持管理者への操作説明が完了している',m:'説明記録'},
+    {no:'12-8', t:'指摘事項の是正が完了し、再確認済みである',m:'指摘記録・現物確認'},
+    {no:'12-9', t:'保険・法定検査（電気主任技術者検査等）が完了',m:'書類確認'},
+    {no:'12-10',t:'施主サイン・引渡し確認書の締結',m:'書類確認'},
+  ]},
+];
+
+// ===== 状態変数 =====
+let mode = 'supervisor';          // 'contractor' | 'supervisor'
+let applicable = {};
+let statuses = {};
+let memos = {};
+let remedies = {};
+let contractorData = null;        // 施工業者から読み込んだデータ
+let autoSaveTimer = null;
+
+const STORAGE_KEY = 'kanri_checklist_v1';
+
+// ===== モード設定 =====
+const MODE_CFG = {
+  contractor: {
+    accent: '#E65100',
+    accentLight: '#FFF3E0',
+    headerClass: 'contractor',
+    headerTitle: '🏢 電気設備工事 社内検査チェックリスト（施工業者用）',
+    headerSub: '監理事務所検査前の自主チェック用 ― 完了後はJSONデータを監理者へ送付',
+    noteClass: 'contractor',
+    noteText: '※ 該当する項目の「該当」にチェックし、チェック欄で「✓ 確認済」または「△ 要是正」を選択してください。内容欄に具体的な内容・測定値を記録し、完了後は「データを保存（JSON）」で監理者へ送付してください。',
+    ok: '✓ 確認済',
+    ng: '△ 要是正',
+    pendLabel: '未確認',
+    progTitle: '社内検査進捗（該当項目のみ）',
+    ngLabel: '要是正',
+    ngModalBtn: '📋 是正事項まとめ',
+    inspectorLabel: '社内検査担当者',
+    dateLabel: '社内検査日',
+    modalTitle: '📋 是正事項まとめ（別紙）',
+    modalHeaderClass: 'contractor',
+    modalNoteText: '※「△要是正」選択または内容欄に記入のある項目を自動集計',
+    modalNote2: '是正事項まとめ',
+  },
+  supervisor: {
+    accent: '#1a3a5c',
+    accentLight: '#E8EEF5',
+    headerClass: 'supervisor',
+    headerTitle: '🔍 電気設備工事 監理事務所検査チェックリスト',
+    headerSub: '施工品質・法令適合・動作確認の総合検査用',
+    noteClass: 'supervisor',
+    noteText: '※ 「該当」にチェックを入れ、チェック欄で「○ 良」または「× 手直し」を選択してください。指摘内容欄の記入は指摘事項まとめに自動集計されます。📐は測定値記録が必要な項目です。',
+    ok: '○ 良',
+    ng: '× 手直し',
+    pendLabel: '未確認',
+    progTitle: '検査進捗（該当項目のみ）',
+    ngLabel: '手直し',
+    ngModalBtn: '📋 指摘事項まとめ',
+    inspectorLabel: '監理者（検査者）',
+    dateLabel: '検査日',
+    modalTitle: '📋 指摘事項まとめ（別紙）',
+    modalHeaderClass: 'supervisor',
+    modalNoteText: '※「×手直し」選択または指摘内容欄に記入のある項目を自動集計',
+    modalNote2: '指摘事項まとめ',
+  }
+};
+
+function key(ci, ii){ return ci+'-'+ii; }
+
+function setMode(m) {
+  mode = m;
+  const cfg = MODE_CFG[m];
+
+  // CSS変数
+  document.documentElement.style.setProperty('--accent', cfg.accent);
+  document.documentElement.style.setProperty('--accent-light', cfg.accentLight);
+
+  // モードボタン
+  document.getElementById('mode-btn-c').classList.toggle('active', m==='contractor');
+  document.getElementById('mode-btn-s').classList.toggle('active', m==='supervisor');
+
+  // ヘッダー
+  const hdr = document.getElementById('doc-header');
+  hdr.className = 'doc-header '+cfg.headerClass;
+  document.getElementById('header-title').textContent = cfg.headerTitle;
+  document.getElementById('header-sub').textContent = cfg.headerSub;
+
+  // ノート
+  const nb = document.getElementById('note-box');
+  nb.className = 'note-box '+cfg.noteClass;
+  nb.textContent = cfg.noteText;
+
+  // ラベル
+  document.getElementById('inspector-label').textContent = cfg.inspectorLabel;
+  document.getElementById('date-label').textContent = cfg.dateLabel;
+  document.getElementById('ng-modal-btn').textContent = cfg.ngModalBtn;
+  document.getElementById('prog-title').textContent = cfg.progTitle;
+
+  // モーダル
+  document.getElementById('modal-header').className = 'modal-header '+cfg.modalHeaderClass;
+  document.getElementById('modal-title').textContent = cfg.modalTitle;
+  document.getElementById('modal-note').textContent = cfg.modalNoteText;
+  const ncb = document.getElementById('ng-count-bar');
+  ncb.className = 'ng-count-bar '+cfg.modalHeaderClass;
+
+  renderAll();
+  autoSave();
+}
+
+// ===== 進捗更新 =====
+function updateProgress() {
+  const cfg = MODE_CFG[mode];
+  let total=0, ok=0, ng=0, na=0;
+  CATS.forEach((cat,ci) => cat.items.forEach((_,ii) => {
+    const k = key(ci,ii);
+    if (!applicable[k]) return;
+    total++;
+    const s = statuses[k]||'pending';
+    if(s==='ok') ok++;
+    else if(s==='ng') ng++;
+    else if(s==='na') na++;
+  }));
+  const pct = total ? Math.round(ok/total*100) : 0;
+  const fill = document.getElementById('prog-fill');
+  fill.style.width = pct+'%';
+  fill.style.background = ng>0 ? (mode==='contractor'?'#E65100':'#c62828') : '#2e7d32';
+  document.getElementById('pct-text').textContent = pct+'%';
+  document.getElementById('prog-label').textContent = (ok+ng)+' / '+total+' 項目確認済';
+  document.getElementById('ng-label').textContent = cfg.ngLabel+'：'+ng+'件';
+
+  const chips = document.getElementById('chips');
+  const ngCls = mode==='contractor'?'chip-ng-c':'chip-ng-s';
+  chips.innerHTML =
+    '<span class="chip chip-ok">'+cfg.ok+'：'+ok+'</span>'+
+    '<span class="chip '+ngCls+'">'+cfg.ng+'：'+ng+'</span>'+
+    '<span class="chip chip-pend">未確認：'+(total-ok-ng-na)+'</span>'+
+    '<span class="chip chip-na">N/A：'+na+'</span>';
+
+  CATS.forEach((cat,ci) => {
+    let sOk=0,sNg=0,sAp=0;
+    cat.items.forEach((_,ii) => {
+      const k=key(ci,ii);
+      if(!applicable[k]) return;
+      sAp++;
+      if(statuses[k]==='ok') sOk++;
+      if(statuses[k]==='ng') sNg++;
+    });
+    const el = document.getElementById('badge-'+ci);
+    if(el) {
+      el.textContent = (sOk+sNg)+' / '+sAp;
+      el.className = 'cat-badge'+(sNg>0?(mode==='contractor'?' has-ng-c':' has-ng'):sOk===sAp&&sAp>0?' all-ok':'');
+    }
+  });
+}
+
+// ===== レンダリング =====
+function renderAll() {
+  const cfg = MODE_CFG[mode];
+  const hasHandoff = contractorData && mode==='supervisor';
+  const colClass = hasHandoff ? 'cols-handoff' : 'cols-normal';
+  const root = document.getElementById('root');
+  root.innerHTML = '';
+
+  CATS.forEach((cat,ci) => {
+    const block = document.createElement('div');
+    block.className = 'cat-block';
+    block.innerHTML =
+      '<div class="cat-header" onclick="toggleCat('+ci+')">' +
+        '<span class="cat-title">'+cat.icon+' '+cat.title+'</span>' +
+        '<span class="cat-right">' +
+          '<span class="cat-badge" id="badge-'+ci+'">0 / 0</span>' +
+          '<span class="chevron open" id="chev-'+ci+'">▼</span>' +
+        '</span>' +
+      '</div>' +
+      '<div id="body-'+ci+'">' +
+        '<div class="tbl-head '+colClass+'">' +
+          '<span>番号</span><span>区分</span><span>該当</span>' +
+          (hasHandoff ? '<span>施工業者</span>' : '') +
+          '<span>チェック</span><span>検査項目</span><span>指摘内容・測定値</span>' +
+        '</div>' +
+      '</div>';
+    root.appendChild(block);
+
+    const body = document.getElementById('body-'+ci);
+    cat.items.forEach((item,ii) => {
+      const k = key(ci,ii);
+      const ap = !!applicable[k];
+      const st = statuses[k]||'pending';
+      const msr = item.isMeasure?' msr-row':'';
+      const hasMemo = !!(memos[k]&&memos[k].trim());
+      const ngRowCls = mode==='contractor'?' ng-row-c':' ng-row-s';
+      const row = document.createElement('div');
+      row.id = 'row-'+k;
+      row.className = 'item-row '+colClass+(st==='ok'&&ap?' ok-row':st==='ng'&&ap?ngRowCls:st==='na'?' na-row':'')+msr;
+
+      // 施工業者チェック列
+      let refCell = '';
+      if (hasHandoff) {
+        const cst = (contractorData.statuses||{})[k]||'';
+        const cmemo = (contractorData.memos||{})[k]||'';
+        let refLabel='―',refCls='';
+        if(cst==='ok'){refLabel='✓ 確認済';refCls='ref-ok';}
+        else if(cst==='ng'){refLabel='△ 要是正';refCls='ref-ng';}
+        else if(cst==='na') refLabel='N/A';
+        refCell = '<div class="cell"><div class="c-ref-val"><span class="'+refCls+'">'+refLabel+'</span>'+(cmemo?'<br><span style="color:#888;font-size:9px;">'+cmemo.substring(0,20)+(cmemo.length>20?'…':'')+'</span>':'')+'</div></div>';
+      }
+
+      row.innerHTML =
+        '<div class="cell c-no">'+item.no+'</div>'+
+        '<div class="cell c-cat">'+cat.subcat+'</div>'+
+        '<div class="cell c-applicable"><input type="checkbox"'+(ap?' checked':'')+' onchange="changeApplicable('+ci+','+ii+',this.checked)"></div>'+
+        refCell+
+        '<div class="cell c-status"><select id="st-'+k+'"'+(ap?'':' disabled')+' onchange="changeStatus('+ci+','+ii+',this.value)">' +
+          '<option value="pending"'+(st==='pending'?' selected':'')+'>―</option>' +
+          '<option value="ok"'+(st==='ok'?' selected':'')+'>'+cfg.ok+'</option>' +
+          '<option value="ng"'+(st==='ng'?' selected':'')+'>'+cfg.ng+'</option>' +
+          '<option value="na"'+(st==='na'?' selected':'')+'>N/A</option>' +
+        '</select></div>'+
+        '<div class="cell c-text">' +
+          '<span class="item-text'+(st==='ok'&&ap?' ok':st==='ng'&&ap?(mode==='contractor'?' ng-c':' ng'):'')+'" id="txt-'+k+'">'+item.t+'</span>' +
+          '<span class="item-sub">'+(item.isMeasure?'📐 測定値記録要 ／ ':'')+' 確認方法：'+item.m+'</span>' +
+        '</div>'+
+        '<div class="cell c-memo"><textarea id="memo-'+k+'" class="'+(hasMemo?'has-memo':'')+'" placeholder="'+(item.isMeasure?'測定値・判定を記入...':'内容を記入...')+'" oninput="changeMemo('+ci+','+ii+',this.value)">'+escHtml(memos[k]||'')+'</textarea></div>';
+
+      body.appendChild(row);
+    });
+  });
+  updateProgress();
+}
+
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+
+// ===== 状態変更 =====
+function changeApplicable(ci,ii,checked){
+  const k=key(ci,ii);
+  applicable[k]=checked;
+  const sel=document.getElementById('st-'+k);
+  if(sel) sel.disabled=!checked;
+  if(!checked){statuses[k]='na';if(sel)sel.value='na';}
+  else if(statuses[k]==='na'){statuses[k]='pending';if(sel)sel.value='pending';}
+  updateProgress();
+  scheduleAutoSave();
+}
+
+function changeStatus(ci,ii,val){
+  const k=key(ci,ii);
+  statuses[k]=val;
+  const row=document.getElementById('row-'+k);
+  const txt=document.getElementById('txt-'+k);
+  const hasHandoff = contractorData && mode==='supervisor';
+  const colClass = hasHandoff?'cols-handoff':'cols-normal';
+  const msr=(CATS[ci].items[ii].isMeasure)?' msr-row':'';
+  const ngCls=mode==='contractor'?' ng-row-c':' ng-row-s';
+  if(row) row.className='item-row '+colClass+(val==='ok'?' ok-row':val==='ng'?ngCls:val==='na'?' na-row':'')+msr;
+  if(txt) txt.className='item-text'+(val==='ok'?' ok':val==='ng'?(mode==='contractor'?' ng-c':' ng'):'');
+  updateProgress();
+  scheduleAutoSave();
+}
+
+function changeMemo(ci,ii,val){
+  const k=key(ci,ii);
+  memos[k]=val;
+  const ta=document.getElementById('memo-'+k);
+  if(ta) ta.className=val.trim()?'has-memo':'';
+  scheduleAutoSave();
+}
+
+function toggleCat(ci){
+  const body=document.getElementById('body-'+ci);
+  const chev=document.getElementById('chev-'+ci);
+  const open=body.style.display!=='none';
+  body.style.display=open?'none':'block';
+  chev.className=open?'chevron':'chevron open';
+}
+
+// ===== 自動保存 =====
+function scheduleAutoSave(){
+  const dot=document.getElementById('autosave-dot');
+  const txt=document.getElementById('autosave-text');
+  dot.className='autosave-dot saving';
+  txt.textContent='自動保存：入力中...';
+  if(autoSaveTimer) clearTimeout(autoSaveTimer);
+  autoSaveTimer=setTimeout(autoSave,1500);
+}
+
+function autoSave(){
+  try{
+    const data=buildSaveData();
+    localStorage.setItem(STORAGE_KEY,JSON.stringify(data));
+    const dot=document.getElementById('autosave-dot');
+    const txt=document.getElementById('autosave-text');
+    dot.className='autosave-dot saved';
+    txt.textContent='自動保存：完了 ('+new Date().toLocaleTimeString('ja-JP')+')';
+  }catch(e){
+    document.getElementById('autosave-text').textContent='自動保存：使用不可（HTMLビューワーの制限）';
+  }
+}
+
+function autoLoad(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(!raw) return false;
+    const data=JSON.parse(raw);
+    applyLoadedData(data);
+    document.getElementById('autosave-text').textContent='自動保存データを復元しました ('+data.savedAt+')';
+    document.getElementById('autosave-dot').className='autosave-dot saved';
+    return true;
+  }catch(e){ return false; }
+}
+
+function clearAutoSave(){
+  if(!confirm('自動保存データを消去してリセットしますか？')) return;
+  try{ localStorage.removeItem(STORAGE_KEY); }catch(e){}
+  applicable={}; statuses={}; memos={}; remedies={}; contractorData=null;
+  document.getElementById('handoff-banner').className='handoff-banner';
+  document.getElementById('autosave-dot').className='autosave-dot';
+  document.getElementById('autosave-text').textContent='自動保存データを消去しました';
+  renderAll();
+}
+
+// ===== JSON保存・読込 =====
+function buildSaveData(){
+  return {
+    version:'2.0',
+    mode:mode,
+    savedAt:new Date().toLocaleString('ja-JP'),
+    meta:{
+      proj:document.getElementById('m-proj').value,
+      contractor:document.getElementById('m-contractor').value,
+      agent:document.getElementById('m-agent').value,
+      location:document.getElementById('m-location').value,
+      inspector:document.getElementById('m-inspector').value,
+      date:document.getElementById('m-date').value,
+      summary:document.getElementById('m-summary').value,
+      notes:document.getElementById('m-notes').value,
+    },
+    applicable:applicable,
+    statuses:statuses,
+    memos:memos,
+    remedies:remedies,
+  };
+}
+
+function applyLoadedData(data){
+  if(data.mode) { mode=data.mode; }
+  if(data.meta){
+    const m=data.meta;
+    document.getElementById('m-proj').value=m.proj||'';
+    document.getElementById('m-contractor').value=m.contractor||'';
+    document.getElementById('m-agent').value=m.agent||'';
+    document.getElementById('m-location').value=m.location||'';
+    document.getElementById('m-inspector').value=m.inspector||'';
+    document.getElementById('m-date').value=m.date||'';
+    document.getElementById('m-summary').value=m.summary||'';
+    document.getElementById('m-notes').value=m.notes||'';
+  }
+  applicable=data.applicable||{};
+  statuses=data.statuses||{};
+  memos=data.memos||{};
+  remedies=data.remedies||{};
+  setMode(mode);
+}
+
+function saveToFile(){
+  const data=buildSaveData();
+  const proj=document.getElementById('m-proj').value||'検査';
+  const modeLabel=mode==='contractor'?'社内検査':'監理検査';
+  const fname=proj+'_'+modeLabel+'_'+new Date().toISOString().slice(0,10)+'.json';
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=fname;
+  a.click();
+  autoSave();
+}
+
+function loadFromFile(event){
+  const file=event.target.files[0];
+  if(!file) return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    try{
+      const data=JSON.parse(e.target.result);
+
+      // 施工業者データを監理モードで読み込む場合
+      if(data.mode==='contractor' && mode==='supervisor'){
+        contractorData=data;
+        // メタ情報だけ引き継ぐ
+        if(data.meta){
+          document.getElementById('m-proj').value=data.meta.proj||'';
+          document.getElementById('m-contractor').value=data.meta.contractor||'';
+          document.getElementById('m-agent').value=data.meta.agent||'';
+          document.getElementById('m-location').value=data.meta.location||'';
+          document.getElementById('m-summary').value=data.meta.summary||'';
+        }
+        // 施工業者の該当設定を引き継ぐ
+        applicable=Object.assign({},data.applicable||{});
+        statuses={};  // 監理者は自分でチェック
+        memos={};
+        showHandoffBanner(data);
+        renderAll();
+        autoSave();
+      } else {
+        // 同じモードのデータ or 監理→監理
+        if(data.mode==='contractor' && mode==='contractor'){
+          // 施工業者が自分のデータを再読み込み
+          applyLoadedData(data);
+        } else {
+          applyLoadedData(data);
+        }
+      }
+      event.target.value='';
+      alert('データを読み込みました。');
+    }catch(err){
+      alert('読み込みエラー：正しいJSONファイルを選択してください。');
+    }
+  };
+  reader.readAsText(file);
+}
+
+function showHandoffBanner(data){
+  const banner=document.getElementById('handoff-banner');
+  banner.className='handoff-banner show';
+  const m=data.meta||{};
+  const ngCount=Object.values(data.statuses||{}).filter(v=>v==='ng').length;
+  const okCount=Object.values(data.statuses||{}).filter(v=>v==='ok').length;
+  document.getElementById('handoff-info').innerHTML=
+    '工事件名：<span>'+escHtml(m.proj||'—')+'</span>　' +
+    '工事業者：<span>'+escHtml(m.contractor||'—')+'</span>　' +
+    '社内検査日：<span>'+escHtml(m.date||'—')+'</span>　' +
+    '確認済：<span>'+okCount+'件</span>　要是正：<span>'+ngCount+'件</span><br>' +
+    '※ 施工業者の「該当」設定を引き継いでいます。監理者のチェック欄は空欄のため、各項目を改めて確認してください。';
+}
+
+// ===== 指摘まとめ =====
+function getNgItems(){
+  return CATS.flatMap((cat,ci)=>cat.items.reduce((acc,item,ii)=>{
+    const k=key(ci,ii);
+    const st=statuses[k]||'pending';
+    const memo=memos[k]||'';
+    if((st==='ng'||(memo.trim()&&applicable[k]))){
+      acc.push({no:item.no,cat:cat.subcat,text:item.t,status:st,memo:memo,key:k});
+    }
+    return acc;
+  },[]));
+}
+
+function openNgModal(){
+  document.getElementById('ng-proj').textContent=document.getElementById('m-proj').value||'—';
+  document.getElementById('ng-contractor').textContent=document.getElementById('m-contractor').value||'—';
+  document.getElementById('ng-agent').textContent=document.getElementById('m-agent')?document.getElementById('m-agent').value||'—':'—';
+  document.getElementById('ng-inspector').textContent=document.getElementById('m-inspector').value||'—';
+  document.getElementById('ng-date').textContent=document.getElementById('m-date').value||'—';
+  buildNgTable();
+  document.getElementById('ng-modal').classList.add('open');
+}
+
+function buildNgTable(){
+  const cfg=MODE_CFG[mode];
+  const list=getNgItems();
+  const ngOnly=list.filter(i=>i.status==='ng').length;
+  document.getElementById('ng-count-bar').textContent=
+    cfg.ng+'：'+ngOnly+'件 ／ メモ記入：'+list.length+'件（'+cfg.ng+'含む）';
+
+  // ヘッダー
+  document.getElementById('ng-thead').innerHTML=
+    '<tr><th class="td-no">番号</th><th class="td-cat">区分</th><th>検査項目</th>'+
+    '<th class="td-status">チェック</th><th>'+cfg.ng.replace('×','指摘').replace('△','是正')+'内容</th>'+
+    '<th style="width:120px;">是正期限・担当</th><th class="td-kanri">監理確認</th></tr>';
+
+  const tbody=document.getElementById('ng-tbody');
+  tbody.innerHTML='';
+  if(list.length===0){
+    tbody.innerHTML='<tr><td colspan="7" class="empty-msg">'+cfg.ng+'・メモ記入のある項目はありません</td></tr>';
+    return;
+  }
+  list.forEach((item,idx)=>{
+    const tr=document.createElement('tr');
+    const stLabel=item.status==='ng'?cfg.ng:item.status==='ok'?cfg.ok:'―';
+    const stCls=item.status==='ng'?(mode==='contractor'?'s-ng-c':'s-ng-s'):item.status==='ok'?'s-ok':'';
+    tr.innerHTML=
+      '<td class="td-no">'+(idx+1)+'</td>'+
+      '<td class="td-cat">'+item.cat+'</td>'+
+      '<td>['+item.no+'] '+item.text+'</td>'+
+      '<td class="td-status"><span class="status-badge '+stCls+'">'+stLabel+'</span></td>'+
+      '<td class="td-memo">'+(item.memo||'—')+'</td>'+
+      '<td class="td-remedy"><input type="text" placeholder="期限・担当者" value="'+escHtml(remedies[item.key]||'')+'" oninput="remedies[\''+item.key+'\']=this.value"></td>';
+    tbody.appendChild(tr);
+  });
+}
+
+function closeNgModal(){document.getElementById('ng-modal').classList.remove('open');}
+function printMain(){window.print();}
+function printNgSheet(){buildNgTable();document.body.classList.add('print-ng-mode');window.print();document.body.classList.remove('print-ng-mode');}
+
+function exportNgCSV(){
+  const cfg=MODE_CFG[mode];
+  const list=getNgItems();
+  const stMap={ok:cfg.ok,ng:cfg.ng,na:'N/A',pending:'未確認'};
+  let csv='\uFEFF番号,区分,検査項目,チェック,内容,是正期限・担当\n';
+  list.forEach(item=>{
+    csv+='"'+item.no+'","'+item.cat+'","'+item.text+'","'+(stMap[item.status]||'')+'","'+(item.memo||'').replace(/"/g,'""')+'","'+(remedies[item.key]||'').replace(/"/g,'""')+'"\n';
+  });
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download=(MODE_CFG[mode].modalNote2)+'.csv';
+  a.click();
+}
+
+function expandAll(){document.querySelectorAll('[id^="body-"]').forEach(e=>e.style.display='block');document.querySelectorAll('[id^="chev-"]').forEach(e=>e.className='chevron open');}
+function collapseAll(){document.querySelectorAll('[id^="body-"]').forEach(e=>e.style.display='none');document.querySelectorAll('[id^="chev-"]').forEach(e=>e.className='chevron');}
+
+function resetAll(){
+  if(!confirm('すべてのチェックをリセットしますか？'))return;
+  applicable={}; statuses={}; memos={}; remedies={}; contractorData=null;
+  document.getElementById('handoff-banner').className='handoff-banner';
+  try{localStorage.removeItem(STORAGE_KEY);}catch(e){}
+  renderAll();
+}
+
+function exportCSV(){
+  const cfg=MODE_CFG[mode];
+  const stMap={ok:cfg.ok,ng:cfg.ng,na:'N/A',pending:'未確認'};
+  let csv='\uFEFF工事件名,工事業者,番号,区分,該当,チェック,検査項目,確認方法,内容\n';
+  const pj=document.getElementById('m-proj').value||'';
+  const ct=document.getElementById('m-contractor').value||'';
+  CATS.forEach((cat,ci)=>cat.items.forEach((item,ii)=>{
+    const k=key(ci,ii);
+    csv+='"'+pj+'","'+ct+'","'+item.no+'","'+cat.subcat+'",'+(applicable[k]?'"●"':'""')+',"'+(stMap[statuses[k]||'pending'])+'","'+item.t+'","'+item.m+'","'+(memos[k]||'').replace(/"/g,'""')+'"\n';
+  }));
+  const a=document.createElement('a');
+  a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(csv);
+  a.download='検査チェックリスト.csv';
+  a.click();
+}
+
+
+// ===== ダークモード =====
+function toggleDark(){
+  const on=document.body.classList.toggle('dark');
+  const btn=document.getElementById('dark-btn');
+  if(btn) btn.textContent=on?'☀ ライト':'🌙 ダーク';
+  try{localStorage.setItem('dm',''+on);}catch(e){}
+}
+function initDark(){
+  try{
+    if(localStorage.getItem('dm')==='true'){
+      document.body.classList.add('dark');
+      const btn=document.getElementById('dark-btn');
+      if(btn) btn.textContent='☀ ライト';
+    }
+  }catch(e){}
+}
+
+// ===== 初期化 =====
+document.getElementById('m-date').value=new Date().toISOString().split('T')[0];
+setMode('supervisor');
+initDark();
+if(!autoLoad()){
+  setMode('supervisor');
+}
+</script>
+
+</body></html>
